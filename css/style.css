@@ -1,0 +1,147 @@
+/* font-family: 'EB Garamond', serif;
+
+font-family: 'Montserrat', sans-serif; */
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background: #F8F5F0;
+}
+
+.header{
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    margin-bottom: 10px;
+}
+
+.header .primary{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.header .primary img{
+    height: 70px;
+}
+
+#crt {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.4px;
+}
+
+.header .secondary{
+    position: relative;
+    display: flex;
+    justify-content: right;
+}
+
+.header .burger {
+    width: 30px;
+    height: 40px;
+	margin-right: 20px;
+	margin-top: 50px;
+}
+
+.header .burger .cb{
+    position: absolute;
+	top: 40px;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+	z-index: 9999;
+	opacity: 0;
+}
+
+.header .burger .cb:checked ~ .flyout{
+    left: 0;
+}
+
+.header .burger .cb:checked ~ .bars span{
+    background: #c8974e;
+}
+
+.header .burger .bars span{
+    height: 1px;
+	width: 100%;
+	background: #333;
+	display: block;
+	position: relative;
+	z-index: 99;
+	margin-bottom: 6px;
+	border-radius: 10px;
+}
+
+.header .burger .flyout{
+    background: rgba(255, 255, 255, 0.95);
+	width: 60vw;
+	height: 100vh;
+	position: absolute;
+    padding-top: 90px;
+    padding-left: 20px;
+	top: 0px;
+	left: -10000px;
+	z-index: 1;
+}
+
+.header .burger .flyout ul{
+    list-style: none;
+}
+
+.header .burger .flyout a{
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.4px;
+}
+
+.header .burger .flyout h3{
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    margin-bottom: 5px;
+    text-transform: none;
+    font-size: 14px;
+}
+
+.hero {
+    background: url("../imgs/heropalm.png");
+    width: 100vw;
+    height: 180px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero img{
+    max-width: 100vw;
+}
+
+.hero h2{
+    position: absolute;
+    font-family: 'EB Garamond', serif;
+    letter-spacing: 1.2px;
+    font-weight: 400;
+}
+
+.hero.ss {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 600px) {
+
+}

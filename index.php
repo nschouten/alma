@@ -19,7 +19,7 @@ function my_autoloader($class){
 		}
 	}
 }
- echo("here");
+
 spl_autoload_register('my_autoloader');
 
 $controller = setVariable("controller", "Public");
@@ -32,7 +32,7 @@ function setVariable($name, $default){
 		return $_POST[$name];
 	}
 
-	if(isset($_POST[$name]))
+	if(isset($_GET[$name]))
 	{
 		return $_GET[$name];
 	}
@@ -59,11 +59,13 @@ if(file_exists($controllerFile)) //if the controllerFile variable (the doc path)
 
 	if(method_exists($oController, $action)) //now run the 'main' function
 	{
-		$oController->$action();
+        $oController->$action();
+        echo $oController->content;
 
 	} else {
 
-		Errors::missingMethodError($controllerName, $action);
+        Errors::missingMethodError($controllerName, $action);
+        
 	}
 } else {
 

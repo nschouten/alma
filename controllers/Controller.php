@@ -4,13 +4,11 @@ Class Controller{
 
     var $bFinalViewRun = false;
 
-	public function loadView($viewFile, $bAppendToVariable=false)
-	{
+	public function loadView($viewFile, $bAppendToVariable=false, $variableName=""){
 		ob_start(); //this opens a buffer where all output is stored
 		include($viewFile); //take the contents of this file and store in buffer
 
 		$tempHTML = ob_get_contents(); //take the contents of $viewfile and make them equal to $tempHTML variable
-
 		ob_clean(); //now erase buffer
 
 		//to add more content to the $tempHTML variable...
@@ -19,25 +17,23 @@ Class Controller{
 		if($bAppendToVariable) //if append to variable equals true 
 		{
             // and the if the variable exists....
-            if(isset($this->$nameOfVariable))
+            if(isset($this->$variableName))
             {
-                $this->$nameOfVariable .= $tempHTML; //then append to the additional data to it
+                $this->$variableName .= $tempHTML; //then append to the additional data to it
             } else {
-                $this->$nameOfVariable = $tempHTML; //if the variable doesn't already exist then set the new variable as a variable
+                $this->$variableName = $tempHTML; //if the variable doesn't already exist then set the new variable as a variable
             }
         } else {
             $this->content .= $tempHTML; //if append to variable equals false then have the new data or temphtml be appended to the content default variable
         }
     }
     
-    public function loadData($data, $variableName)
-    {
+    public function loadData($data, $variableName){
         $this->$variableName = $data;
     }
 
     //this will take the controller name and action and save this path to a variable
-    public function loadRoute($controller, $action, $variableName="content", $append=0)
-    {
+    public function loadRoute($controller, $action, $variableName="content", $append=0){
         $controllerName = $controller."Controller"; 
         $controllerFile = "controllers/".$controllerName.".php"; //this takes the controller name defined above and creates the path to where the document lives
 
@@ -74,8 +70,7 @@ Class Controller{
         $this->content = $tempHTML;
     }
 
-    public function goTo($controller, $action, $additional="")
-    {
+    public function goTo($controller, $action, $additional=""){
         $goToThisLocation = "location: index.php?controller=".$controller."&action=".$action."&".$additional;
         header($goToThisLocation);
 
