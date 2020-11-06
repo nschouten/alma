@@ -23,6 +23,7 @@ body{
     display: flex;
     align-self: center;
     justify-content: center;
+    padding-top: 20px;
 }
 
 .header .primary img{
@@ -69,7 +70,7 @@ body{
 }
 
 .header .burger .cb:checked ~ .bars span{
-    background: #c8974e;
+    background: #E0AD91;
 }
 
 .header .burger .bars span{
@@ -104,7 +105,8 @@ body{
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 12px;
+    font-weight: 200;
+    font-size: 10px;
     letter-spacing: 1.4px;
 }
 
@@ -140,6 +142,55 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.footer{
+    height: 100px;
+    width: 100vw;
+    background: #102A26;
+    position: absolute;
+    bottom: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.footer .social{
+    display: flex;
+    align-items: center;
+    
+}
+
+.footer .social img{
+    height: 20px;
+    margin-right: 5px;
+}
+
+.footer .social h3{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 12px;
+    letter-spacing: 1.4px;
+    color: #f8f5f0;
+    margin-bottom: 10px;
+}
+
+.footer .links{
+    text-align: right;
+}
+
+.footer .links a{
+    display: block;
+    color: #f8f5f0;
+   letter-spacing: 1.2px;
+    text-decoration: none;
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    font-size: 12px;
+
 }
 
 @media only screen and (min-width: 600px) {
