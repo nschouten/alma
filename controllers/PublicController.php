@@ -19,7 +19,7 @@ Class PublicController extends Controller{
         $this->loadFinalView("views/main.php");
     }
 
-    public function shopMain(){
+    public function items(){
    
         $this->logo = "<img src='imgs/logo.png' alt='logo'/>";
         $this->header = "Shop";
@@ -32,7 +32,7 @@ Class PublicController extends Controller{
 
     }
 
-    public function shopItem(){
+    public function item(){
 
         $this->logo = "<img src='imgs/logo.png' alt='logo'/>";
         $this->header = "Shop";
@@ -82,10 +82,10 @@ Class PublicController extends Controller{
 
     }
 
-    public function processLogin(){
-        $_SESSION["uID"] = User::Login($_POST["strEmail"], $_POST["strPassword"]);
+    public function processAdminLogin(){
+        $_SESSION["aID"] = Admin::Login($_POST["strEmail"], $_POST["strPassword"]);
        
-		if ($_SESSION["uID"])
+		if ($_SESSION["aID"])
 		{   
             $this->goHere("admin", "main");
         
@@ -93,6 +93,40 @@ Class PublicController extends Controller{
 		} else {
 
 			$this->goHere("public", "errorLogin"); // if details entered do not exist in the db redirect user back to login form with error
+        }
+    }
+
+    public function processUserLogin(){
+        $_SESSION["uID"] = User::Login($_POST["strEmail"], $_POST["strPassword"]);
+       
+		if ($_SESSION["uID"])
+		{   
+            $this->goHere("user", "main");
+        
+            // if details entered exist in the db allow user to login
+		} else {
+
+			$this->goHere("public", "errorLogin"); // if details entered do not exist in the db redirect user back to login form with error
+        }
+    }
+
+    public function errorLogin(){
+
+        $this->loadView("views/header.php");
+        $this->loadView("views/loginError.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
+
+    }
+
+    public function processNewUser(){
+        $_SESSION["uID"] = User::addUser($_POST['strFirstName'], $_POST['strLastName'], $_POST['strEmail'], $_POST['strPassword']);
+
+        if($_SESSION["uID"])
+        {
+            $this->goHere("public", "successVIP");
+        } else {
+            $this->goHere("public", "errorLogin");
         }
     }
 
