@@ -2,15 +2,10 @@
 
 Class PublicController extends Controller{
 
-    var $content = "";
-    var $hero = "";
-    var $logo = "";
-    var $header = "";
-
     public function main(){
         
-        $this->hero = "<img src='imgs/hero1.jpg' alt='hero'/>";
-        $this->logo = "<img src='imgs/logo.png' alt='logo'/>";
+        $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
 
         $this->loadView("views/header.php");
         $this->loadView("views/homepage-hero.php");
@@ -19,34 +14,34 @@ Class PublicController extends Controller{
         $this->loadFinalView("views/main.php");
     }
 
-    public function items(){
-   
-        $this->logo = "<img src='imgs/logo.png' alt='logo'/>";
-        $this->header = "Shop";
+    public function products(){
+ 
+        $this->loadData("Shop", "header");
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
 
         $this->loadView("views/header.php");
         $this->loadView("views/hero.php");
-        $this->loadView("views/shop.php");
+        $this->loadView("views/products.php");
         $this->loadView("views/footer.php");
         $this->loadFinalView("views/main.php");
 
     }
 
-    public function item(){
+    public function product(){
 
-        $this->logo = "<img src='imgs/logo.png' alt='logo'/>";
-        $this->header = "Shop";
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Shop", "header");
         
         $this->loadView("views/header.php");
         $this->loadView("views/hero.php");
-        $this->loadView("views/item.php");
+        $this->loadView("views/product.php");
         $this->loadView("views/footer.php");
         $this->loadFinalView("views/main.php");
     }
 
-    public function cartMain(){
-        $this->logo = "<img src='imgs/logo.png' alt='logo'/>";
-        $this->header = "Cart";
+    public function cart(){
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Cart", "header");
 
         $this->loadView("views/header.php");
         $this->loadView("views/hero.php");
@@ -56,23 +51,61 @@ Class PublicController extends Controller{
         
     }
 
-    public function login(){
+    public function adminLogin(){
 
-        $this->logo = "<img src='imgs/logo.png' alt='logo'/>";
-        $this->header = "Login";
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Admin Log In", "header");
+        
 
         $this->loadView("views/header.php");
         $this->loadView("views/hero.php");
-        $this->loadView("views/login.php");
+        $this->loadView("views/adminLogin.php");
         $this->loadView("views/footer.php");
         $this->loadFinalView("views/main.php");
     }
 
+    public function adminLoginError(){
+
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Oops", "header");
+        
+
+        $this->loadView("views/header.php");
+        $this->loadView("views/hero.php");
+        $this->loadView("views/adminLoginError.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
+    }
+
+    public function userLogin(){
+
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("But first, log in", "header");
+
+        $this->loadView("views/header.php");
+        $this->loadView("views/hero.php");
+        $this->loadView("views/userLogin.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
+    }
+
+    public function userLoginError(){
+
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Oops, try again", "header");
+
+        $this->loadView("views/header.php");
+        $this->loadView("views/hero.php");
+        $this->loadView("views/checkoutLoginError.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
+    }
+
+
     public function register(){
 
-        $this->hero = "<img src='imgs/heropalm.png' alt='hero'/>";
-        $this->logo = "<img src='imgs/logo.png' alt='logo'/>";
-        $this->header = "Register";
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Register", "header");
 
         $this->loadView("views/header.php");
         $this->loadView("views/hero.php");
@@ -81,18 +114,19 @@ Class PublicController extends Controller{
         $this->loadFinalView("views/main.php");
 
     }
-
+    
     public function processAdminLogin(){
         $_SESSION["aID"] = Admin::Login($_POST["strEmail"], $_POST["strPassword"]);
-       
+    //    print_r($_SESSION["aID"]);
+    //    die;
 		if ($_SESSION["aID"])
 		{   
-            $this->goHere("admin", "main");
+            header("location: index.php?controller=admin&action=mainAdmin");
         
             // if details entered exist in the db allow user to login
 		} else {
 
-			$this->goHere("public", "errorLogin"); // if details entered do not exist in the db redirect user back to login form with error
+			$this->goHere("public", "adminLoginError"); // if details entered do not exist in the db redirect user back to login form with error
         }
     }
 
@@ -101,36 +135,31 @@ Class PublicController extends Controller{
        
 		if ($_SESSION["uID"])
 		{   
-            $this->goHere("user", "main");
+            header("location <?=$this->success?>");
         
             // if details entered exist in the db allow user to login
 		} else {
 
-			$this->goHere("public", "errorLogin"); // if details entered do not exist in the db redirect user back to login form with error
+			header("location <?=$this->error?>"); // if details entered do not exist in the db redirect user back to login form with error
         }
     }
 
-    public function errorLogin(){
+    static public function addUser(){
 
-        $this->loadView("views/header.php");
-        $this->loadView("views/loginError.php");
-        $this->loadView("views/footer.php");
-        $this->loadFinalView("views/main.php");
-
-    }
-
-    public function processNewUser(){
-        $_SESSION["uID"] = User::addUser($_POST['strFirstName'], $_POST['strLastName'], $_POST['strEmail'], $_POST['strPassword']);
-
-        if($_SESSION["uID"])
+        if($_POST['strFirstName'] && $_POST['strLastName'] && $_POST['strEmail'] && $_POST['strPassword'])
         {
-            $this->goHere("public", "successVIP");
+            $con = DB::connect();
+            $sql = "INSERT INTO users(strFirstName, strLastName, strEmail, strPassword)
+                    VALUES ('".$_POST['strFirstName']."', '".$_POST['strLastName']."', '".$_POST['strEmail']."', '".$_POST['strPassword']."')";
+            
+            $results = mysqli_query($con, $sql);
+            
+            header("location: index.php?controller=public&action=userLogin");
+
         } else {
-            $this->goHere("public", "errorLogin");
-        }
+
+            header("location: index.php?controller=public&action=userLoginError");
+
+        }   
     }
-
-
-
-
 }

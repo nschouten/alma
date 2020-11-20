@@ -10,7 +10,7 @@
         <div class="col links">
             <a href="#">Returns</a>
             <a href="#">Shipping</a>
-            <a href="#">FAQ</a>
+            <a href="index.php?controller=public&action=adminLogin">Admin</a>
             <a href="#">&copy;2020 Alma Boutique</a>
         </div>
     </div>

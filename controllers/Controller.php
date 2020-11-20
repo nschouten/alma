@@ -29,6 +29,7 @@ Class Controller{
     }
     
     public function loadData($data, $variableName){
+        
         $this->$variableName = $data;
     }
 

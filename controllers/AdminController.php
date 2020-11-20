@@ -1,32 +1,20 @@
 <?php
 
-Class Admin extends Controller{
+Class AdminController extends Controller{
 
-    public function cms(){
-        
+    public function mainAdmin(){
+        $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
+
+        $this->loadView("views/cmsHeader.php");
+        $this->loadView("views/hero.php");
+        $this->loadView("views/cmsHome.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
     }
 
-    public function mainProducts(){
-        
-    }
-
-    public function mainProduct(){
-        
-    }
-
-    public function mainOrders(){
-        
-    }
-
-    public function mainOrder(){
-        
-    }
-
-    public function mainCustomers(){
-        
-    }
-
-    public function mainCustomer(){
+    public function saveProduct(){
         
     }
 
@@ -34,7 +22,7 @@ Class Admin extends Controller{
 
         if($_SESSION["aID"] == "")
         {
-            $this->goHere("public", "cms");
+            $this->goHere("public", "adminLoginError");
             
         } else {
         

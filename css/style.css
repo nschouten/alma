@@ -66,7 +66,7 @@ body{
 }
 
 .header .burger .cb:checked ~ .flyout{
-    left: 0;
+    left: -25%;
 }
 
 .header .burger .cb:checked ~ .bars span{
@@ -86,7 +86,7 @@ body{
 
 .header .burger .flyout{
     background: rgba(255, 255, 255, 0.95);
-	width: 60vw;
+	width: 50vw;
 	height: 100vh;
 	position: absolute;
     padding-top: 90px;
@@ -354,10 +354,177 @@ body{
 
 }
 
-
 .web-only{
     display: none;
 }
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.login h2{
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.login input[type=text]{
+    background: #EADED0;
+    height: 30px;
+    border: none;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.login input[type=password]{
+    background: #EADED0;
+    height: 30px;
+    border: none;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.login input[type=submit]{
+    width: 100%;
+    border: .5px solid #333;
+    height: 30px;
+    background: #F8F5F0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.4px;
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.login p{
+    text-align: right;
+    font-weight: 200;
+    color: #333;
+}
+
+.login a{
+    text-decoration: none;
+    font-weight: 700;
+    color: #333;
+    font-style: italic;
+}
+
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.register h2{
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.register input[type=text]{
+    background: #EADED0;
+    height: 30px;
+    border: none;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.register input[type=password]{
+    background: #EADED0;
+    height: 30px;
+    border: none;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.register input[type=submit]{
+    width: 100%;
+    border: .5px solid #333;
+    height: 30px;
+    background: #F8F5F0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.4px;
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.register p{
+    text-align: right;
+    font-weight: 200;
+    color: #333;
+}
+
+.register a{
+    text-decoration: none;
+    font-weight: 700;
+    color: #333;
+    font-style: italic;
+}
+
+.addProduct {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.addProduct .perm input{
+    display: block;
+    height: 30px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    width: 100%;
+}
+
+.addProduct textarea{
+    margin-bottom: 5px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.variantsList .option {
+    display: flex;
+    align-items: center;
+}
+
+.variantsList .option input[type=radio]{
+    width: 20px;
+    display: inline;
+    margin-right: 5px;
+}
+
+.variantsList .option input[type=text]{
+    display: inline-block;
+    width: 40%;
+}
+
+
+#optionSetContainer input[type=text]{
+    display: inline-block;
+    width: 60px;
+    padding-left: 10px;
+}
+
+
 
 @media only screen and (min-width: 600px) {
     .mobile-only{
@@ -658,6 +825,15 @@ body{
         font-weight: 200;
         font-size: 12px;
     
+    }
+
+    .login{
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+    
+    .login h2{
+        font-size: 30px;
     }
 
 }

@@ -1,5 +1,7 @@
 <?php 
 session_start();
+// print_r($_SESSION["aID"]);
+
 function my_autoloader($class){
 
 	$checkFiles = array(

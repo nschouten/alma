@@ -6,7 +6,7 @@ Class User extends Controller{
         
     }
 
-    public function review(){
+    public function addReview(){
         
     }
 
@@ -14,20 +14,37 @@ Class User extends Controller{
         
     }
 
-    static public function addUser(){
+    static public function addNewReview(){
 
-        if($_POST['strFirstName'] && $_POST['strLastName'] && $_POST['strEmail'] && $_POST['strPassword'])
+        $timestamp =round(microtime(true) * 1000);
+        $target_dir = "assets/"; 
+        $target_file = $target_dir.basename($timestamp.$_FILES["strFileName"]["name"]);
+        $ext = strtolower(pathinfo($_FILES['strFileName']['name'], PATHINFO_EXTENSION));
+        $fileTypeAllowed = array('pdf', 'png', 'jpeg', 'jpg');
+
+        if(!in_array($ext, $fileTypeAllowed))
         {
-            $con = DB::connect();
-            $sql = "INSERT INTO VIP(strFirstName, strLastName, strEmail, strPhone, strCountry, intAge, strFileName)
-                    VALUES ('".$_POST['strFirstName']."', '".$_POST['strLastName']."', '".$_POST['strEmail']."', '".$_POST['strPhone']."', '".$_POST['strCountry']."', '".$_POST['intAge']."', '".$target_file."')";
-            
-            $results = mysqli_query($con, $sql);
-            header("location: index.php?controller=public&action=successVIP");
+            echo ("file type not allowed");
+            $target_file = null;
 
         } else {
 
-        echo("something went wrong");
+            move_uploaded_file($_FILES["strFileName"]["tmp_name"], $target_file);
+        }
+
+        if($_POST['intUserID'] && $_POST['inProductID'] && $_POST['intRating'] && $_POST['strComment'] && $target_file)
+        {
+            $con = DB::connect();
+            $sql = "INSERT INTO VIP(intUserID, inProductID, intRating, strComment, strFileName)
+                    VALUES ('".$_POST['intUserID']."', '".$_POST['inProductID']."', '".$_POST['intRating']."', '".$_POST['strComment']."', '".$target_file."')";
+            
+            $results = mysqli_query($con, $sql);
+
+            header("location: index.php?controller=public&action=reviewSuccess");
+
+        } else {
+
+        header("location: index.php?controller=public&action=reviewError");
 
         }   
     }

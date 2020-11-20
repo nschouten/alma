@@ -6,7 +6,7 @@
     <div class="col secondary">
         <div class="nav">
             <a class="web-only" href="index.php" id="homeBtn">Home</a>
-            <a class="web-only" href="index.php?controller=public&action=shopMain" id="shopBtn">Shop</a>
+            <a class="web-only" href="index.php?controller=public&action=productsMain" id="shopBtn">Shop</a>
             <a class="web-only" href="index.php?controller=public&action=cartMain" id="cartBtn">Cart(0)</a>
         </div>
         <div class="mobile-nav mobile-only">
@@ -21,7 +21,7 @@
 
                 <div class="flyout">
                     <a href="index.php"><h3>Home</h3></a>
-                    <a href="index.php?controller=public&action=shopMain"><h3>Shop</h3></a>
+                    <a href="index.php?controller=public&action=productsMain"><h3>Shop</h3></a>
                         <ul>
                             <li><a href="#">Dress</a></li>
                             <li><a href="#">Shoes</a></li>
