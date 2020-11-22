@@ -14,5 +14,8 @@
     
 </div>
 
+<script src="js/addProduct.js"></script> 
+<script src="js/review-validator.js"></script> 
+
 </body>
 </html>

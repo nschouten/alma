@@ -1,0 +1,2 @@
+<?=$oCart->showCartCount()?>
+<?=$oCart->showTotal()?>

@@ -2,7 +2,7 @@
     <form method="post" action="index.php" id="li-form">
         <div class="subhandle">
             <h2>Login</h2>
-            <input type="hidden" name="controller" value="public">
+            <input type="hidden" name="controller" value="login">
             <input type="hidden" name="action" value="processAdminLogin">        
 
             <input type="text" name="strEmail" placeholder="Email"/><br/>

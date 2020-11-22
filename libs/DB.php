@@ -23,7 +23,7 @@ Class DB{
         }
         
         // echo($sql); 
-        // // die;
+        // die;
         $results = mysqli_query($oDB->connect(), $sql);
         
         if($results) 

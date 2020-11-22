@@ -49,4 +49,3 @@
     </div> 
 </div>
 
-<script src="js/addProduct.js"></script> 

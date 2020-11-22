@@ -524,7 +524,347 @@ body{
     padding-left: 10px;
 }
 
+.productsMain .cat-nav{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.productsMain .cat-nav a{
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.4px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #333;
+    margin: 10px;
+}
 
+.productsMain .products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productsMain .products .product{
+    margin-bottom: 50px;
+}
+
+.productsMain .products .product img{
+    height: 350px;
+}
+
+.productsMain .products .product h2{
+    font-size: 14px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    color: #333;
+}
+
+.productsMain .products .product p{
+    font-size: 14px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    color: #333;
+}
+
+.productsMain .products .product a{
+    text-decoration: none;
+    text-align: center;
+}
+
+.product-main{
+    padding-top: 25px;
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 25px;
+}
+
+.product-main .images{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.product-main .images .active img{
+    height: 450px;
+}
+
+.product-main .images .handle .subactive img {
+    float: left;
+    height: 150px;
+    margin-right: 10px;
+}
+
+.product-main  .details h3{
+    font-size: 20px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    color: #333;
+    text-align: left;
+    letter-spacing: 1.3px;
+    margin-bottom: 5px;
+}
+
+.product-main  .details span{
+    display: block;
+    font-size: 16px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-main  .details p{
+    display: block;
+    font-size: 14px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+.product-main .details form{
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: #333;
+}
+
+.product-main .details form .fieldgroup{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.product-main form .fieldgroup.size .container{
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.product-main form .fieldgroup.size .container{
+    font-size: 12px;
+    padding: 0px;
+    margin-right: 15px;
+    /* border: 1px solid pink; */
+}
+
+.product-main form .fieldgroup.size .container input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.product-main form .fieldgroup.size .container:hover input ~ .checkmark{
+    border-bottom: .5px solid #333;
+}
+
+.product-main form .fieldgroup.size .container input:checked ~ .checkmark{
+    border-bottom: .5px solid #333;
+}
+
+
+.product-main form .fieldgroup.size .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+.product-main form .fieldgroup.size .container .checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    padding: 8px;
+}
+
+.product-main .details form span{
+    float: left;
+    margin-right: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+}
+
+.product-main .details form input[type=number]{
+    width: 35px;
+    height: 30px;
+    text-align: center;
+    border: .5px solid #333;
+    background: #f8f5f0;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.product-main .details form input[type=submit]{
+    display: block;
+    border: .5px solid #333;
+    background: #f8f5f0;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    letter-spacing: 1.4px;;
+}
+
+.product-main .reviews-login{
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    color: #333;
+    margin-top: 10px;
+}
+
+.product-main .reviews-login a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.product-main .reviews{
+    margin-top: 50px;
+    color: #333;
+
+}
+
+.product-main .reviews h3{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.product-main .reviews .fieldgroup{
+    margin-bottom: 20px;
+}
+
+.product-main .reviews label{
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.product-main .reviews input[type=file]{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+}
+
+.product-main .reviews input[type=text]{
+    height: 30px;
+    width: 100%;
+    border: none;
+    background: #EADED0;
+    padding-left: 5px;
+}
+
+.product-main .reviews input[type=submit]{
+    border: .5px solid #333;
+    background: #f8f5f0;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+}
+
+.product-main .reviews textarea{
+    height: 60px;
+    width: 100%;
+    border: none;
+    background: #EADED0;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.product-main .reviews .line{
+    width: 120px;
+    height: 0;
+    border: .5px solid #333;
+    /* margin: 3px; */
+    display:block;
+    margin: 0 auto;
+}
+
+.product-main .reviews .rev-header h3{
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 200;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.product-main .fieldgroup{
+    overflow: hidden;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+}
+
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:20px;
+    color:#ccc;
+    margin-right: 2px;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #333;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #333;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #333;
+}
+
+.attention{
+    opacity: 0; 
+    color: #CD5C5C;
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.error .attention{
+    opacity: 1;
+}
 
 @media only screen and (min-width: 600px) {
     .mobile-only{
@@ -650,6 +990,7 @@ body{
         font-style: italic;
         font-weight: 500;
     }
+
     .homepage .content.primary .handle .primary .l-line{
         width: 170px;
         height: 0;
@@ -834,6 +1175,369 @@ body{
     
     .login h2{
         font-size: 30px;
+    }
+
+    .productsMain {
+        display: grid;
+        grid-template-rows: 50px 1fr;
+        
+    }
+
+    .productsMain .row.secondary{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    .productsMain .cat-nav{
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    .productsMain .cat-nav a{
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1.4px;
+        font-size: 12px;
+        text-decoration: none;
+        color: #333;
+        margin: 10px;
+    }
+
+    .productsMain .row.secondary .left-nav {
+        width: 70%;
+        margin: 0 auto;
+        /* display: grid;
+        grid-template-rows: 1fr 1fr; */
+    }
+
+    .productsMain .row.secondary .left-nav .categories{
+        margin-bottom: 150px;
+    }
+
+    .productsMain .row.secondary .left-nav h3{
+        letter-spacing: 1.2px;
+        text-decoration: none;
+        font-family: 'EB Garamond', serif;
+        font-size: 16px;
+        color: #333;
+        font-weight: 200;
+        margin-bottom: 25px;
+    }
+
+    .productsMain .row.secondary .left-nav a{
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1.4px;
+        font-size: 12px;
+        font-weight: 400;
+        color: #333;
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+    .productsMain .products .product{
+        margin-bottom: 50px;
+        float: left;
+        width: 33.33%;
+        text-align: center;
+    
+    }
+    
+    .productsMain .products .product img{
+        height: 380px;
+        justify-content: space-around;
+    }
+    
+    .productsMain .products .product h2{
+        font-size: 14px;
+        font-family: 'EB Garamond', serif;
+        font-weight: 200;
+        color: #333;
+        text-align: center;
+    }
+    
+    .productsMain .products .product p{
+        font-size: 14px;
+        font-family: 'EB Garamond', serif;
+        font-weight: 200;
+        color: #333;
+    }
+    
+    .productsMain .products .product a{
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .product-main{
+        padding-top: 50px;
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .product-main .pmh{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .product-main .images{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .product-main .images .handle{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .product-main .images .active img{
+        height: 450px;
+    }
+    
+    .product-main .images .handle .subactive img {
+        display: block;
+        float: none;
+        height: 150px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    .product-main  .details{
+        margin-left: 25px;
+    }
+    
+    .product-main  .details h3{
+        font-size: 20px;
+        font-family: 'EB Garamond', serif;
+        font-weight: 200;
+        color: #333;
+        text-align: left;
+        letter-spacing: 1.3px;
+        margin-bottom: 5px;
+    }
+    
+    .product-main  .details span{
+        display: block;
+        font-size: 16px;
+        font-family: 'EB Garamond', serif;
+        font-weight: 200;
+        color: #333;
+        margin-bottom: 25px;
+    }
+    
+    .product-main  .details p{
+        display: block;
+        font-size: 14px;
+        font-family: 'EB Garamond', serif;
+        font-weight: 200;
+        color: #333;
+        margin-bottom: 5px;
+        text-align: justify;
+    }
+    .product-main .details form{
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        color: #333;
+        padding-top: 25px;
+    }
+    
+    .product-main .details form .fieldgroup{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    
+    .product-main form .fieldgroup.size .container{
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    
+    .product-main form .fieldgroup.size .container{
+        font-size: 12px;
+        padding: 0px;
+        margin-right: 15px;
+        /* border: 1px solid pink; */
+    }
+    
+    .product-main form .fieldgroup.size .container input{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    
+    .product-main form .fieldgroup.size .container:hover input ~ .checkmark{
+        border-bottom: .5px solid #333;
+    }
+    
+    .product-main form .fieldgroup.size .container input:checked ~ .checkmark{
+        border-bottom: .5px solid #333;
+    }
+    
+    
+    .product-main form .fieldgroup.size .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+    
+    .product-main form .fieldgroup.size .container .checkmark{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 10px;
+        width: 100%;
+        padding: 8px;
+    }
+    
+    .product-main .details form span{
+        float: left;
+        margin-right: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        margin: 0px;
+    }
+
+    .product-main .details form .fieldgroup.qty span{
+        margin-right: 10px;
+    }
+    
+    .product-main .details form input[type=number]{
+        width: 35px;
+        height: 30px;
+        text-align: center;
+        border: .5px solid #333;
+        background: #f8f5f0;
+        color: #333;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .product-main .details form input[type=submit]{
+        display: block;
+        border: .5px solid #333;
+        background: #f8f5f0;
+        color: #333;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        padding: 20px;
+        padding-right: 30px;
+        padding-left: 30px;
+        letter-spacing: 1.4px;
+        margin-top: 50px;
+    }
+    
+    .product-main .reviews-login{
+        font-family: 'EB Garamond', serif;
+        font-weight: 200;
+        color: #333;
+        margin-top: 10px;
+        text-align: center;
+    }
+    
+    .product-main .reviews-login a{
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    .product-main .reviews{
+        margin-top: 100px;
+        color: #333;
+    
+    }
+    
+    .product-main .reviews h3{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    
+    .product-main .reviews .fieldgroup{
+        margin-bottom: 0px;
+    }
+
+    .product-main .reviews .fieldgroup.upload{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .product-main .reviews label{
+        display: block;
+        font-family: 'EB Garamond', serif;
+        font-weight: 200;
+        letter-spacing: 1.2px;
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+    
+    .product-main .reviews input[type=file]{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+    }
+    
+    .product-main .reviews input[type=text]{
+        height: 30px;
+        width: 100%;
+        border: none;
+        background: #EADED0;
+        padding-left: 5px;
+    }
+    
+    .product-main .reviews input[type=submit]{
+        border: .5px solid #333;
+        background: #f8f5f0;
+        padding: 20px;
+        padding-right: 40px;
+        padding-left: 40px;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+    }
+    
+    .product-main .reviews textarea{
+        height: 80px;
+        width: 100%;
+        border: none;
+        background: #EADED0;
+        padding-left: 5px;
+        padding-top: 5px;
+    }
+    
+    .product-main .reviews .line{
+        width: 120px;
+        height: 0;
+        border: .5px solid #333;
+        /* margin: 3px; */
+        display:block;
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+    
+    .product-main .reviews .rev-header h3{
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: 'EB Garamond', serif;
+        font-weight: 200;
+        text-transform: capitalize;
+        font-size: 20px;
     }
 
 }

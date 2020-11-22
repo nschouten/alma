@@ -1,24 +1,29 @@
 <?php
 
-Class User extends Controller{
+Class UserController extends Controller{
 
-    public function main(){
-        
+
+    public function reviewSuccess(){
+        $this->loadData("Review Submitted", "header");
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData(Products::getProducts(), "oProducts");
+        $this->loadData(Categories::getCat(), "oCat");
+
+        $this->loadView("views/header.php");
+        $this->loadView("views/hero.php");
+        $this->loadView("views/productsMain.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
     }
 
     public function addReview(){
-        
-    }
 
-    public function checkout(){
-        
-    }
-
-    static public function addNewReview(){
-
+        $con = DB::connect();
         $timestamp =round(microtime(true) * 1000);
         $target_dir = "assets/"; 
         $target_file = $target_dir.basename($timestamp.$_FILES["strFileName"]["name"]);
+        // echo($target_file);
+        // die;
         $ext = strtolower(pathinfo($_FILES['strFileName']['name'], PATHINFO_EXTENSION));
         $fileTypeAllowed = array('pdf', 'png', 'jpeg', 'jpg');
 
@@ -30,24 +35,42 @@ Class User extends Controller{
         } else {
 
             move_uploaded_file($_FILES["strFileName"]["tmp_name"], $target_file);
+            $fileAllowed = 1; 
+        
         }
+       
+        // if($target_file)
+        // {
 
-        if($_POST['intUserID'] && $_POST['inProductID'] && $_POST['intRating'] && $_POST['strComment'] && $target_file)
+        //     $sql = "INSERT INTO reviews(strFileName)
+        //             VALUES ('".$target_file."')";
+        //     echo($sql);
+        //     die;
+        //     $results = mysqli_query($con, $sql);
+        // }
+
+        if($_POST['intUserID'] && $_POST['intProductID'] && $_POST['intRating'] && $_POST['strComment'] && $target_file)
         {
-            $con = DB::connect();
-            $sql = "INSERT INTO VIP(intUserID, inProductID, intRating, strComment, strFileName)
-                    VALUES ('".$_POST['intUserID']."', '".$_POST['inProductID']."', '".$_POST['intRating']."', '".$_POST['strComment']."', '".$target_file."')";
-            
+            $sql = "INSERT INTO reviews(intUserID, intProductID, intRating, strComment, strFileName)
+                    VALUES ('".$_POST['intUserID']."', '".$_POST['intProductID']."', '".$_POST['intRating']."', '".$_POST['strComment']."', '".$target_file."')";
+            // echo($sql);
             $results = mysqli_query($con, $sql);
 
-            header("location: index.php?controller=public&action=reviewSuccess");
+            header("location: index.php?controller=user&action=reviewSuccess");
 
         } else {
 
-        header("location: index.php?controller=public&action=reviewError");
+        echo("something went wrong");
 
         }   
+
+        
     }
+
+    public function checkout(){
+        
+    }
+
 
     public function pretrip(){
 

@@ -18,11 +18,11 @@ Class Products {
 
     public static function getProducts(){ 
         
-        $products = DB::query("SELECT products.*, categories.strCatName, productImgs.strImgFile, variantGroupQty.strSKU, variantGroupQty.intQty
+        $products = DB::query("SELECT products.*, categories.strCatName, productImgs.strImgFile
                                 FROM products
                                 LEFT JOIN categories on products.intCatID = categories.id
                                 LEFT JOIN productImgs on products.id = productImgs.intProductID
-                                LEFT JOIN variantGroupQty on products.id = variantGroupQty.intProductID");
+                                WHERE productImgs.intMain = 1");
 
         $arrProducts = array();
 

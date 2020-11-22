@@ -32,5 +32,3 @@
         </div> <!--mobilenav-->
     </div><!--.col-->
 </div><!--.header mobile-->
-
-</div>
