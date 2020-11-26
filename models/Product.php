@@ -10,7 +10,6 @@ Class Product {
         $this->fPrice = $data["fPrice"];
         $this->strImgFile = $data["strImgFile"];
         $this->strProdDesc = $data["strProdDesc"];
-        $this->strJSONData = $data["strJSONData"];
         
     }
 
@@ -25,4 +24,15 @@ Class Product {
         return new Product($product[0]);
     }
 
+    public static function updateProduct($pID, $strProdName, $strCatName, $fPrice, $strProdDesc, $strColorName, $strSizeName, $intQty){
+        
+        if($pID){
+            $update = DB::query("UPDATE products
+                                SET strProdName ='".$_POST["strProdName"]."', fPrice ='".$_POST["fPrice"]."', strProdDesc ='".$_POST["strProdDesc"]."'");
+        }
+        
+
+
+    }
+    
 }

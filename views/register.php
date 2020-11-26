@@ -6,11 +6,26 @@
             <input type="hidden" name="action" value="registerUser">
             <!-- <input type="hidden" name="pID" value="<?=$_GET["pID"]?>"> -->
 
-            <input type="text" name="strFirstName" placeholder="First Name"/><br/>
-            <input type="text" name="strLastName" placeholder="Last Name"/><br/>
-            <input type="text" name="strEmail" placeholder="Email"/><br/>
-            <input type="password" name="strPassword" placeholder="Password"/><br/>
+            <div class="fieldgroup required">
+                <input type="text" name="strFirstName" placeholder="First Name"/><br/>
 
+            </div>
+
+            <div class="fieldgroup required">
+                <input type="text" name="strLastName" placeholder="Last Name"/><br/>
+
+            </div>
+
+            <div class="fieldgroup required">
+                <input type="text" name="strEmail" placeholder="Email"/><br/>
+
+            </div>
+
+            <div class="fieldgroup required">
+                <input type="password" name="strPassword" placeholder="Password"/><br/>
+
+            </div>
+            
             <input type="submit" id="liBtn" value="Register">
             <p>Already have an account?</br>Click <a href="index.php?controller=login&action=userLogin">here</a> to log in.
 

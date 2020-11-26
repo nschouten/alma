@@ -7,9 +7,9 @@
             </div> <!--row-->
             <div class="row secondary">
                 <div class="nav"> 
-                    <a href="#">Dresses</a>
-                    <a href="#">Shoes</a>
-                    <a href="#">Accessories</a>
+                    <a href="index.php?controller=public&action=productsMain&cID=1">Dresses</a>
+                    <a href="index.php?controller=public&action=productsMain&cID=2">Shoes</a>
+                    <a href="index.php?controller=public&action=productsMain&cID=3">Accessories</a>
                 </div>
             </div>
             <div class="row tertiary">

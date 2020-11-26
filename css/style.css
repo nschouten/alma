@@ -624,6 +624,7 @@ body{
     margin-bottom: 5px;
     text-align: justify;
 }
+
 .product-main .details form{
     text-transform: uppercase;
     letter-spacing: 1.4px;
@@ -633,7 +634,13 @@ body{
 .product-main .details form .fieldgroup{
     display: flex;
     align-items: center;
+}
+
+.product-main form .fieldgroup.qty{
     margin-bottom: 20px;
+}
+
+.product-main form .fieldgroup.size{
     margin-top: 20px;
 }
 
@@ -648,15 +655,11 @@ body{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-
-.product-main form .fieldgroup.size .container{
     font-size: 12px;
     padding: 0px;
     margin-right: 15px;
-    /* border: 1px solid pink; */
 }
+
 
 .product-main form .fieldgroup.size .container input{
     position: absolute;
@@ -687,6 +690,59 @@ body{
     width: 100%;
     padding: 8px;
 }
+
+.product-main form .fieldgroup.color{
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.product-main form .fieldgroup.color .container{
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 12px;
+    padding: 0px;
+    margin-right: 15px;
+}
+
+.product-main form .fieldgroup.color .container input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.product-main form .fieldgroup.color .container:hover input ~ .checkmark{
+    border-bottom: .5px solid #333;
+}
+
+.product-main form .fieldgroup.color .container input:checked ~ .checkmark{
+    border-bottom: .5px solid #333;
+}
+
+
+.product-main form .fieldgroup.color .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+.product-main form .fieldgroup.color .container .checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    padding: 8px;
+}
+
 
 .product-main .details form span{
     float: left;
@@ -866,6 +922,318 @@ body{
     opacity: 1;
 }
 
+.cms-home .handle{
+    display: grid;
+    grid-template-rows: 60px 1fr;
+}
+
+.cms-home{
+    margin-top: 25px;
+}
+
+.cms-home .handle .col.nav{
+    text-align: center;
+    display: grid;
+    width: 80%; 
+    margin: 0 auto;
+}
+
+.cms-home .handle .col.nav a{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    text-decoration: none;
+    color: #333;
+    text-align: left;
+    text-align: center;
+    font-size: 12px;
+    margin: 10px;
+}
+
+.cms-home .handle .col.content{
+    border: 2px solid pink;
+    height: 500px;
+}
+
+#sizeContainer{
+    display: none;
+    padding-left: 10px;
+}
+
+.cart-main{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.cart-main .handle {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.cart-main .handle .cart-primary h2{
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 25px;
+    letter-spacing: 1.2px;
+}
+
+.cart-main .handle .cart-secondary .items{
+    margin-bottom: 75px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+}
+
+.cart-main .handle .cart-secondary .items .item{
+    overflow: hidden;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40px 2fr 1fr 40px;
+    margin-bottom: 10px;
+}
+
+.cart-main .handle .cart-secondary .items .item span{
+    font-size: 16px;
+}
+.cart-main .handle .cart-secondary .items .line{
+        width: 100%;
+        height: 0;
+        border: .5px solid #333;
+        display: block;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 50px;
+}
+
+.cart-main .handle .cart-secondary .totals{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+}
+
+.cart-main .handle .cart-secondary .totals h3{
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 25px;
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+}
+
+.cart-main .handle .cart-secondary .totals .label{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cart-main .handle .cart-secondary .totals .label span{
+    font-size: 12px;
+}
+
+.cart-main .handle .cart-secondary .totals .line{
+        width: 100%;
+        height: 0;
+        border: .5px solid #333;
+        display: block;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
+}
+
+.cart-main .handle .cart-secondary .totals .checkout{
+    padding-top: 15px;
+}
+
+.cart-main .handle .cart-secondary .totals .checkout a{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    border: .5px solid #333;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    text-align: center;
+    display: block;
+}
+
+#empBtn{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    border: .5px solid #333;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.cart-main .handle .cart-secondary .col.dltBtn img{
+    height: 15px;
+}
+
+.cart-main .handle .cart-secondary .col.cartImg img{
+    height: 150px;
+}
+
+.checkout-main{
+    font-family: 'EB Garamond', serif;  
+    height: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.checkout-main .handle{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.checkout-main label{
+    display: block;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    font-size: 14px;
+}
+
+.checkout-main form h3{
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.checkout-main form .fieldgroup{
+    margin-bottom: 10px;
+}
+
+.checkout-main form .billing{
+    margin-bottom: 50px;
+}
+
+.checkout-main form .shipping{
+    margin-bottom: 50px;
+}
+
+.checkout-main form .review{
+    margin-bottom: 50px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 12px;
+}
+
+.checkout-main form .review .label{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.checkout-main form .review h3{
+    font-family: 'EB Garamond', serif;  
+    text-transform: capitalize;
+}
+
+.checkout-main input[type=text]{
+    width: 100%;
+    height: 30px;
+    background: #EADED0;
+    border: none;
+}
+
+.checkout-main form .item{
+    display: grid;
+    grid-template-columns: 2fr 30px 1fr;
+    margin-bottom: 10px;
+}
+
+.checkout-main form .line{
+    width: 100%;
+    height: 0;
+    border: .5px solid #333;
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#plcOrder {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    border: .5px solid #333;
+    background: #f8f5f0;
+    font-size: 12px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.cms-products {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.cms-products .handle{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.cms-products .addButton{
+    margin-bottom: 35px;
+}
+
+.cms-products .addButton a{
+    color: #333;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 10px;
+    padding: 5px;
+    font-weight: 500;
+
+    
+}
+
+.cms-products .product img {
+    height: 75px;
+}
+
+.cms-products .product {
+    display: grid;
+    grid-template-columns: 1fr 2fr 50px;
+    margin-bottom: 15px;
+
+}
+
+.cms-products .product h2{
+    font-size: 16px;
+    font-family: 'EB Garamond', serif;  
+    font-weight: 200;
+}
+
+.cms-products .product a{
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.cms-products .product .deleteBtn{
+    display: flex;
+    align-items: center;
+}
+
+.cms-products .product .deleteBtn img {
+    height: 15px;
+}
+
+
 @media only screen and (min-width: 600px) {
     .mobile-only{
         display: none;
@@ -964,7 +1332,7 @@ body{
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center right;
-        height: 1100px;
+        height: 1200px;
         margin-top: -10px;
         
     }
@@ -1243,7 +1611,7 @@ body{
         text-align: center;
     
     }
-    
+
     .productsMain .products .product img{
         height: 380px;
         justify-content: space-around;
@@ -1436,6 +1804,13 @@ body{
         padding-left: 30px;
         letter-spacing: 1.4px;
         margin-top: 50px;
+        transition: all 1s ease;
+    }
+
+    .product-main .details form input[type=submit]:hover{
+        border: .5px solid #dbc9b4;
+        color:#dbc9b4;
+        cursor: pointer;
     }
     
     .product-main .reviews-login{
@@ -1538,6 +1913,357 @@ body{
         font-weight: 200;
         text-transform: capitalize;
         font-size: 20px;
+    }
+
+    .cms-home .handle{
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        /* height: 100vh; */
+    }
+    
+    .cms-home{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .cms-home .handle .col.nav{
+        text-align: right;
+        width: 80%; 
+        margin: 0 auto;
+    }
+    
+    .cms-home .handle .col.nav a{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        margin: 10px;
+    }
+    
+    .cms-home .handle .col.content{
+        border: 2px solid pink;
+        height: 100%;
+    }
+    
+    #sizeContainer{
+        display: none;
+        padding-left: 5px;
+    }
+
+    .cart-main{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .cart-main .handle {
+        width: 90%;
+        display: grid;
+        grid-template-rows: 50px 1fr;
+    }
+    
+    .cart-main .handle .cart-primary h2{
+        font-family: 'EB Garamond', serif;
+        font-weight: 400;
+        font-size: 24px;
+        letter-spacing: 1.2px;
+    }
+
+    .cart-main .handle .cart-secondary{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    .cart-main .handle .cart-secondary .items{
+        margin-bottom: 75px;
+        font-family: 'EB Garamond', serif;
+        font-weight: 400;
+        width: 90%;
+        margin-top: 15px;
+    }
+    
+    .cart-main .handle .cart-secondary .items .item{
+        overflow: hidden;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 40px 1fr 1fr 1fr 40px;
+        margin-bottom: 10px;
+    }
+    
+    .cart-main .handle .cart-secondary .items .item span{
+        font-size: 16px;
+    }
+    .cart-main .handle .cart-secondary .items .line{
+            width: 100%;
+            height: 0;
+            border: .5px solid #333;
+            display: block;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 75px;
+    }
+    
+    .cart-main .handle .cart-secondary .totals{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        background: #EADED0;
+    }
+    
+    .cart-main .handle .cart-secondary .totals h3{
+        font-family: 'EB Garamond', serif;
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 25px;
+        letter-spacing: 1.2px;
+        text-transform: capitalize;
+        padding: 20px;
+    }
+    
+    .cart-main .handle .cart-secondary .totals .label{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .cart-main .handle .cart-secondary .totals .label span{
+        font-size: 12px;
+    }
+
+    .cart-main .handle .cart-secondary .totals .label span.secondary{
+        text-align: right;
+    }
+    
+    .cart-main .handle .cart-secondary .totals .line{
+            width: 80%;
+            height: 0;
+            border: .5px solid #333;
+            display: block;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+    }
+    
+    .cart-main .handle .cart-secondary .totals .checkout{
+        padding-top: 15px;
+        text-align: center;
+    }
+    
+    .cart-main .handle .cart-secondary .totals .checkout a{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        border: .5px solid #333;
+        color: #333;
+        text-decoration: none;
+        font-size: 12px;
+        padding: 15px;
+        padding-right: 15px;
+        padding-left: 15px;
+        text-align: center;
+        display: inline-block;
+    }
+    
+    #empBtn{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        border: .5px solid #333;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 15px;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+    
+    .cart-main .handle .cart-secondary .col.dltBtn img{
+        height: 15px;
+    }
+    
+    .cart-main .handle .cart-secondary .col.cartImg img{
+        height: 150px;
+    }
+
+    .checkout-main{
+        font-family: 'EB Garamond', serif;  
+        height: 100%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        color: #333;
+    }
+    
+    .checkout-main .handle{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .checkout-main .billing-shipping{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    
+    .checkout-main label{
+        display: block;
+        font-weight: 200;
+        letter-spacing: 1.2px;
+        font-size: 16px;
+    }
+    
+    .checkout-main form h3{
+        font-weight: 400;
+        letter-spacing: 1.2px;
+        margin-bottom: 25px;
+        font-size: 24px;
+    }
+    
+    .checkout-main form .fieldgroup{
+        margin-bottom: 15px;
+    }
+    
+    .checkout-main form .billing{
+        margin-bottom: 50px;
+        padding-right: 20px;
+
+    }
+    
+    .checkout-main form .shipping{
+        margin-bottom: 50px;
+        padding-left: 20px;
+    }
+
+    .checkout-main form .shipping.group{
+        margin-bottom: 0px;
+        padding-left: 0px;
+    }
+    
+    .checkout-main form .review{
+        margin-bottom: 50px;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        font-size: 14px;
+    }
+    
+    .checkout-main form .review .label{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    .checkout-main form .review h3{
+        font-family: 'EB Garamond', serif;  
+        text-transform: capitalize;
+    }
+    
+    .checkout-main input[type=text]{
+        width: 100%;
+        height: 30px;
+        background: #EADED0;
+        border: none;
+    }
+    
+    .checkout-main form .item{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-bottom: 10px;
+    }
+    
+    .checkout-main form .line{
+        width: 100%;
+        height: 0;
+        border: .5px solid #333;
+        display: block;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    
+    #plcOrder {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        border: .5px solid #333;
+        background: #f8f5f0;
+        font-size: 12px;
+        padding: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+        width: 30%;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    #plcOrder:hover{
+        cursor: pointer;
+    }
+
+    .cms-products {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .cms-products .handle{
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .cms-products .addButton{
+        margin-bottom: 50px;
+    }
+    
+    .cms-products .addButton a{
+        color: #333;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        font-size: 14px;
+        padding: 5px;
+        font-weight: 500;
+    
+        
+    }
+
+    .cms-products .products{
+       overflow: hidden;
+    }
+    
+    .cms-products .product img {
+        height: 175px;
+    }
+    
+    .cms-products .product {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 50px;
+        margin-bottom: 15px;
+        float: left;
+        width: 50%;
+    
+    }
+    
+    .cms-products .product h2{
+        font-size: 20px;
+        font-family: 'EB Garamond', serif;  
+        font-weight: 200;
+    }
+    
+    .cms-products .product a{
+        color: #333;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+    
+    .cms-products .product .deleteBtn{
+        display: flex;
+        align-items: center;
+    }
+    
+    .cms-products .product .deleteBtn img {
+        height: 25px;
     }
 
 }

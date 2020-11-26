@@ -5,6 +5,7 @@ Class CmsController extends Controller{
     public function customers(){
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData(Customers::getCustomers(), "oCustomers");
         // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
 
         $this->loadView("views/cmsHeader.php");
@@ -53,7 +54,7 @@ Class CmsController extends Controller{
     public function cmsProducts(){
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
-        $this->loadData(Products::getProducts(), "oProducts");
+        $this->loadData(Products::getAllProducts(), "oProducts");
         // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
 
         $this->loadView("views/cmsHeader.php");
@@ -67,6 +68,9 @@ Class CmsController extends Controller{
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
         $this->loadData(Product::getProduct($_GET['pID']), "oProduct");
+        $this->loadData(Inventory::getInvenByID($_GET['pID']), "oInven");
+        
+        // $this->loadData(Categories::getCat(), "oCat");
         // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
 
         $this->loadView("views/cmsHeader.php");
@@ -75,6 +79,10 @@ Class CmsController extends Controller{
         $this->loadView("views/footer.php");
         $this->loadFinalView("views/main.php");
 
+    }
+
+    public function updateProd(){
+        Product::updateProduct($_POST['pID'], $_POST['strProdName'], $_POST['strCatName'], $_POST['fPrice'], $_POST['strProdDesc'], $_POST['strColorName'], $_POST['strSizeName'], $_POST['intQty'] );
     }
 
     public function addProduct(){

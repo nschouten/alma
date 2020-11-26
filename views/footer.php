@@ -8,8 +8,8 @@
             </div>
         </div>
         <div class="col links">
-            <a href="#">Returns</a>
-            <a href="#">Shipping</a>
+            <a href="index.php?controller=login&action=userLogin">Log In</a>
+            <a href="index.php?controller=login&action=logout">Log Out</a>
             <a href="index.php?controller=login&action=adminLogin">Admin</a>
             <a href="#">&copy;2020 Alma Boutique</a>
         </div>

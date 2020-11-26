@@ -23,31 +23,40 @@
                 <span><?=$this->oProduct->fPrice?></span>
                 <p><?=$this->oProduct->strProdDesc?><p>
 
-                <form method="post" action="index.php"> 
+                <form method="post" action="index.php" id="addProdForm"> 
                     <input type="hidden" name="controller" value="cart">
                     <input type="hidden" name="action" value="addToCart">
-                    <input type="hidden" name="pID" value="<?=$this->oProduct->id?>">
+                    <input type="hidden" name="intProductID" value="<?=$this->oProduct->id?>">
                     <input type="hidden" name="fPrice" value="<?=$this->oProduct->fPrice?>">
-                    
-                    <div class="fieldgroup size">
-                            <?php foreach($this->oSizes as $data)
-                            { ?>
-                                <label class="container"><?=$data->strVariantTypeName?>
-                                    <input type="radio" name="intSizeTypeID" value="<?=$data->id?>">
-                                    <span class="checkmark"></span>
-                                </label>
-                            <?php } ?>
-                        </div>
+                    <input type="hidden" name="strImgFile" value="<?=$this->oImg->strImgFile?>">
+                    <input type="hidden" name="strProdName" value="<?=$this->oProduct->strProdName?>">
 
-                        <div class="fieldgroup color">
-                            <?php foreach($this->oColors as $data)
-                            { ?>
-                                <label class="container"><?=$data->strVariantTypeName?>
-                                    <input type="radio" id="prodColor" name="intVariantTypeID" value="<?=$data->intVariantTypeID?>">
-                                    <span class="checkmark"></span>
-                                </label>
-                            <?php } ?>
+                    <div class="fieldgroup color required">
+                        <?php foreach($this->oColors as $data)
+                        { ?>
+                            <label class="container"><?=$data->strColorName?>
+                                <input type="radio" id="colorChoice" name="intColorID" value="<?=$data->id?>">
+                                <span class="checkmark"></span>
+                            </label>
+                        <?php } ?>
+                        <div class="attention">
+                            <p>You forgot a field!</p>
                         </div>
+                    </div>
+
+                    <div class="fieldgroup size required" id="sizeContainer">
+                        <?php foreach($this->oSizes as $data)
+                        { ?>
+                            <label class="container">
+                                <?=$data->strSizeName?>
+                                <input type="radio" name="intSizeID" value="<?=$data->id?>">
+                                <span class="checkmark"></span>
+                            </label>
+                        <?php } ?>
+                        <div class="attention">
+                            <p>You forgot a field!</p>
+                        </div>
+                    </div>
 
                     <div class="fieldgroup qty">
                         <span>Qty</span>

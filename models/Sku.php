@@ -4,26 +4,19 @@ Class Sku{
 
     public function __construct($data){
 
-        $this->id = $data["id"];
-        $this->strSKU = $data["strSKU"];
+        $this->intSku = $data["id"];
 
         }
 
-    public static function getSku(){
+    public static function getSku($intProductID, $intColorID="", $intSizeID=""){
 
-        $sku = DB::query("SELECT DISTINCT variantTypes.strVariantTypeName, variantProdGroup.intVariantTypeID, variantProdGroup.strSKU
-                                FROM variantTypes 
-                                LEFT JOIN variantProdGroup on variantTypes.id = variantProdGroup.intVariantTypeID
-                                WHERE variantProdGroup.intProductID=".$_GET['pID']);
+        $sku = DB::query("SELECT sku.id
+                        FROM sku
+                        WHERE sku.intProductID=".$intProductID." AND sku.intColorID=".$intColorID." and sku.intSizeID=".$intSizeID);
+        
+        return new Sku($sku[0]);
 
-        $arrSku = array();
 
-        foreach($sku as $data)
-        {
-            $arrSku[] = new Sku($data);
-        }
-
-        return $arrSku;
 
     }
 

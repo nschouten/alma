@@ -7,10 +7,10 @@
         <div class="nav">
             <a class="web-only" href="index.php" id="homeBtn">Home</a>
             <a class="web-only" href="index.php?controller=public&action=productsMain" id="shopBtn">Shop</a>
-            <a class="web-only" href="index.php?controller=public&action=cartMain" id="cartBtn">Cart(0)</a>
+            <a class="web-only" href="index.php?controller=cart&action=cartMain" id="cartBtn">Cart(<?=Cart::showCartCount();?>)</a>
         </div>
         <div class="mobile-nav mobile-only">
-            <a href="index.php?controller=public&action=cartMain" id="crt">Cart(0)</a>
+            <a href="index.php?controller=cart&action=cartMain" id="crt">Cart(<?=Cart::showCartCount();?>)</a>
             <div class="burger mobile-only">
                 <input type="checkbox" class="cb">
                 <div class="bars">

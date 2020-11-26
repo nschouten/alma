@@ -64,11 +64,20 @@ Class UserController extends Controller{
 
         }   
 
-        
     }
 
     public function checkout(){
         
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Checkout", "header");
+        $this->loadData(Cart::show(), "CartContents");
+
+        $this->loadView("views/header.php");
+        $this->loadView("views/hero.php");
+        $this->loadView("views/checkout.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
+
     }
 
 

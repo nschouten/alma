@@ -5,6 +5,7 @@ Class AdminController extends Controller{
     public function mainAdmin(){
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Admin", "header");
         // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
 
         $this->loadView("views/cmsHeader.php");

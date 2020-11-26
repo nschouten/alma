@@ -1,6 +1,7 @@
 <?php 
 session_start();
 // print_r($_POST);
+// die;
 
 function my_autoloader($class){
 

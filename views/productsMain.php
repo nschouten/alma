@@ -1,7 +1,7 @@
 <div class="productsMain">
     <div class="row primary">
         <div class="web-only row">
-            <p>search bar and sorter will go here</p>
+            
         </div>
 
         <div class="cat-nav mobile-only">
@@ -22,17 +22,11 @@
                 foreach($this->oCat as $data)
                 {
                 ?>
-                <a href="index.php?controller=public&action=products&pID=<?=$data->id?>"><?=$data->strCatName?></a>
+                <a href="index.php?controller=public&action=productsMain&cID=<?=$data->id?>"><?=$data->strCatName?></a>
                 <?php } ?>
             </div> <!--cat-nav-->
             <div class="color-nav">
-                <h3>Colors</h3>
-                <?php
-                foreach($this->oCat as $data)
-                {
-                ?>
-                <a href="index.php?controller=public&action=products&pID=<?=$data->id?>"><?=$data->strCatName?></a>
-                <?php } ?>
+                
             </div> <!--color-nav-->
         </div><!--left nav -->
 

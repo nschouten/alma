@@ -18,7 +18,7 @@ Class PublicController extends Controller{
  
         $this->loadData("Shop", "header");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
-        $this->loadData(Products::getProducts(), "oProducts");
+        $this->loadData(Products::getProducts($_GET['cID']), "oProducts");
         $this->loadData(Categories::getCat(), "oCat");
 
         $this->loadView("views/header.php");
@@ -38,7 +38,7 @@ Class PublicController extends Controller{
         $this->loadData(Imgs::getMainImg($_GET['pID']), "oImg");
         $this->loadData(Variants::getSizes(), "oSizes");
         $this->loadData(Variants::getColors($_GET['pID']), "oColors");
-        $this->loadData(Sku::getSku($_GET['pID']), "oSku");
+        // $this->loadData(Sku::getSku($_GET['pID']), "oSku");
         
         $this->loadView("views/header.php");
         $this->loadView("views/hero.php");

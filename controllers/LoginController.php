@@ -81,4 +81,10 @@ Class LoginController extends Controller{
         }
     }
 
+    public function logout(){
+
+        unset($_SESSION["uID"]);
+        header("location: index.php?controller=public&action=main");
+    }
+
 }
