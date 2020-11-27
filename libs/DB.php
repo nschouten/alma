@@ -3,6 +3,7 @@
 Class DB{
 
     var $debug = true; 
+    var $CON = "";
     
     static public function connect(){
 
@@ -13,9 +14,11 @@ Class DB{
         // return mysqli_connect($safeConnect["host"], $safeConnect["user"], $safeConnect["password"], $safeConnect["database"]);
     }
 
-    static public function query($sql){
+    static public function query($sql, $returnConnection=0){
         
         $oDB = new DB();
+        
+
 
         if($oDB->debug)
         {
@@ -24,7 +27,9 @@ Class DB{
         
         // echo($sql); 
         // die;
-        $results = mysqli_query($oDB->connect(), $sql);
+
+        $CON = $oDB->connect();
+        $results = mysqli_query($CON, $sql);
         
         if($results) 
         {
@@ -37,7 +42,15 @@ Class DB{
             
             }
 
-            return $data;
+            if($returnConnection==1)
+            { 
+                return $CON;
+
+            } else {
+
+                return $data;
+            }
+            
             
         }
     }

@@ -1,51 +1,76 @@
-<div class="addProduct"> 
+<div class="cms-addProduct"> 
     <div class="handle">
+        <form method="post" action="index.php" id="addProdForm" enctype="multipart/form-data">
+            <input type="hidden" name="controller" value="cms">
+            <input type="hidden" name="action" value="updateProd">
+            <input type="hidden" name="intProductID" value="">
 
-        <input type="text" class="perm" id="productName" name="strProdName" placeholder="Product Name"/>
-        <input type="text" class="perm" id="productPrice" name="fPrice" placeholder="Price"/>
-        <div class="category">
-            <label>Category<label>
-                <?php
-                foreach($this->oCat as $data)
+            <div class="fieldgroup required">
+                <label>Product Name</label>
+                <input type="text" name="strProdName" value="<?=$this->oProduct->strProdName?>"/>
+            </div>
+
+            <div class="fieldgroup required">
+                <label>Price</label>
+                <input type="text" name="fPrice" value="<?=$this->oProduct->fPrice?>"/>
+            </div>
+
+            <div class="fieldgroup">
+                <label>Pictures</label>
+                <input type="file" id="files" name="files" multiple>
+            </div>
+
+            <div class="fieldgroup required">
+                <label>Category</label>
+                <select name="intCatID">
+                    <option></option>
+                <?php foreach($this->oCat as $data)
                 {
-                    ?> 
-                    <input type="checkbox" id="strCatName" name="strCatName"><label><?=$data->strCatName?></label>
-                <?php
-                }
-                ?>
+                    $currentlySelected = ($this->oProduct->intCatID == $data->id) ? "SELECTED" : ""; ?>
+                    <option value="<?=$data->id?>" <?=$currentlySelected?>><?=$data->strCatName?></option>
+                <?php } ?>
+                </select>
+            </div>
             
-        </div>
-        <textarea id="productDesc" class="perm" name="strProdDesc" placeholder="Product Description"></textarea>
+            <div class="fieldgroup required">
+                <label>Description</label>
+                <textarea name="strProdDesc"><?=$this->oProduct->strProdDesc?></textarea>
+            </div>
 
-            <div class="variantTypes">
-                <label>Variants</label>
-                <?php
-                foreach($this->oCat as $data)
-                {
-                    ?> 
-                    <input type="checkbox" id="strCatName" name="strCatName"><label><?=$data->strCatName?></label>
-                <?php
-                }
-                ?>
-                <a href="#" id="addVariantOption">Add Variant</a>
+            <div class="fieldgroup required groups">
+                <input type="hidden" name="intSku[]" value="">
 
-                <div class="variantsList"> </div>
+                <div class="subgroup">
+                    <label>Color</label>
+                    <select name="intSku[][intColorID]">
+                        <option></option>
+                        <?php foreach($this->oColors as $colorData) { ?>
+                            
+                        <option value="<?=$colorData->id?>" <?=$currentlySelected?>><?=$colorData->strColorName?></option>
+                        <?php } ?>
+                    </select>
+                </div><!--subgroup--> 
 
-                <label>Option Groups</label>
-                <a href="#" id="addOptionSet">Add Group</a>
+                <div class="subgroup">
+                    <label>Size</label>
+                    <select name="intSku[][intSizeID]">
+                        <option></option>
+                        <?php foreach($this->oSizes as $sizeData) { ?>
+                        
+                        <option value=""><?=$sizeData->strSizeName?></option>
+                        <?php } ?>
+                    </select>
+                </div><!--subgroup-->   
 
-                <div id="optionSetContainer"></div>
+                <div class="subgroup">
+                    <label>Qty</label>
+                    <input type="text" name="intSku[][intQty]" value="<?=$data->intQty?>">
+                </div>
+            </div> <!--fieldgroup-->
 
-            </div> <!--variantTypes -->
-
-        <button id="saveBtn">Save Product</button>
-        <button id="load">Load from DB</button>
-
-        <form method="post" action="index.php" id="newProd">
-            <input type="hidden" name="controller" value="admin">
-            <input type="hidden" name="action" value="saveProduct">
-           <textarea id="productJSON" name="strJSONData"></textarea>
+            <div class="fieldgroup" id="optionSetContainer"></div>
+            <input type="submit" value="Add"/>
         </form>
-    </div> 
+     </div>
 </div>
-
+            

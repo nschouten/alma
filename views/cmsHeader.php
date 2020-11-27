@@ -22,11 +22,11 @@
                 </div><!--.bars-->
 
                 <div class="flyout">
-                    <a class="web-only" href="index.php?controller=admin&action=mainAdmin" id="homeBtn">Home</a>
-                    <a class="web-only" href="index.php?controller=cms&action=cmsProducts" id="prodBtn">Products</a>
-                    <a class="web-only" href="index.php?controller=cms&action=customers" id="custBtn">Customers</a>
-                    <a class="web-only" href="index.php?controller=cms&action=orders" id="ordBtn">Orders</a>
-                    <a class="web-only" href="index.php" id="cartBtn">Back to Shop</a>
+                    <a class="mobile-only" href="index.php?controller=admin&action=mainAdmin" id="homeBtn">Home</a>
+                    <a class="mobile-only" href="index.php?controller=cms&action=cmsProducts" id="prodBtn">Products</a>
+                    <a class="mobile-only" href="index.php?controller=cms&action=customers" id="custBtn">Customers</a>
+                    <a class="mobile-only" href="index.php?controller=cms&action=orders" id="ordBtn">Orders</a>
+                    <a class="mobile-only" href="index.php" id="cartBtn">Back to Shop</a>
                 </div><!--.flyout-->
             </div> <!--.buger-->
         </div> <!--mobilenav-->

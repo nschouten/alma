@@ -11,8 +11,7 @@ Class Products {
         $this->fPrice = $data["fPrice"];
         $this->strImgFile = $data["strImgFile"];
         $this->strProdDesc = $data["strProdDesc"];
-        $this->strSKU = $data["strSKU"];
-        $this->intQty = $data["intQty"];
+        
         
     }
 

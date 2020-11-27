@@ -8,8 +8,9 @@
             <div class="items">
                 
                 <?php $CartItems = $this->CartContents;
-
-                foreach($CartItems as $data)
+                if($CartItems){
+                   
+                foreach($CartItems as $key => $data)
                 { ?> 
                     <div class="item">
                         <div class="col dltBtn">
@@ -32,6 +33,9 @@
                             <span>x <?=$data["intQty"]?></span>
                         </div>
                     </div><!--item-->
+                <?php } 
+                } else {
+                    ?> <h3 id="notcart">There is nothing in your cart</h3>
                 <?php } ?>
     
 

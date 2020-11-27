@@ -3,6 +3,7 @@
 Class Controller{
 
     var $bFinalViewRun = false;
+    var $content = "";
 
 	public function loadView($viewFile, $bAppendToVariable=false, $variableName=""){
 		ob_start(); //this opens a buffer where all output is stored
@@ -24,6 +25,7 @@ Class Controller{
                 $this->$variableName = $tempHTML; //if the variable doesn't already exist then set the new variable as a variable
             }
         } else {
+
             $this->content .= $tempHTML; //if append to variable equals false then have the new data or temphtml be appended to the content default variable
         }
     }

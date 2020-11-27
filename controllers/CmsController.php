@@ -52,6 +52,7 @@ Class CmsController extends Controller{
     }
 
     public function cmsProducts(){
+        $this->loadData("Products", "header");
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
         $this->loadData(Products::getAllProducts(), "oProducts");
@@ -65,12 +66,15 @@ Class CmsController extends Controller{
     }
  
     public function cmsProduct(){
+        $this->loadData("Edit", "header");
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
         $this->loadData(Product::getProduct($_GET['pID']), "oProduct");
         $this->loadData(Inventory::getInvenByID($_GET['pID']), "oInven");
         
-        // $this->loadData(Categories::getCat(), "oCat");
+        $this->loadData(Categories::getCat(), "oCat");
+        $this->loadData(Colors::getColors(), "oColors");
+        $this->loadData(Sizes::getSizes(), "oSizes");
         // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
 
         $this->loadView("views/cmsHeader.php");
@@ -82,7 +86,17 @@ Class CmsController extends Controller{
     }
 
     public function updateProd(){
-        Product::updateProduct($_POST['pID'], $_POST['strProdName'], $_POST['strCatName'], $_POST['fPrice'], $_POST['strProdDesc'], $_POST['strColorName'], $_POST['strSizeName'], $_POST['intQty'] );
+
+       if(Product::saveProduct($_POST['intProductID'], $_POST['strProdName'], $_POST['intCatID'], $_POST['fPrice'], $_POST['strProdDesc'], $_POST['intSizeID'], $_POST['intSizeID'], $_POST['intQty'], $_POST['intSku']))
+       {
+           header("location: index.php?controller=cms&action=cmsProduct&pID=$intProductID");
+
+       } else {
+
+        echo("something went wrong");
+
+       }
+
     }
 
     public function addProduct(){
@@ -90,6 +104,8 @@ Class CmsController extends Controller{
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
         $this->loadData("Add Product", "header");
         $this->loadData(Categories::getCat(), "oCat");
+        $this->loadData(Colors::getColors(), "oColors");
+        $this->loadData(Sizes::getSizes(), "oSizes");
         // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
 
         $this->loadView("views/cmsHeader.php");

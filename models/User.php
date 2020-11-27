@@ -5,6 +5,7 @@ Class User{
     public function __construct($userData){
 
         $this->admin = $userData["strEmail"];
+        $this->id = $userData["id"];
     }
 
     public static function Login($strEmail, $strPassword){
@@ -15,7 +16,7 @@ Class User{
             // $strPassword = mysqli_real_escape_string(DB::connect(), $_POST["strPassword"]);
     
             $arrUser = DB::query("SELECT * FROM users WHERE strEmail='".$strEmail."' AND strPassword='".$strPassword."'");
-        
+            // print_r($arrUser);
             // print_r($arrAdmin);
             
             

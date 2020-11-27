@@ -1,7 +1,6 @@
 <div class="productsMain">
     <div class="row primary">
-        <div class="web-only row">
-            
+        <div class="web-only row">    
         </div>
 
         <div class="cat-nav mobile-only">
@@ -9,7 +8,7 @@
         foreach($this->oCat as $data)
         {
             ?>
-            <a href="index.php?controller=public&action=products&pID=<?=$data->id?>"><?=$data->strCatName?></a>
+            <a href="index.php?controller=public&action=productsMain&cID=<?=$data->id?>"><?=$data->strCatName?></a>
         <?php } ?>
         </div>
     </div><!--row primary -->
@@ -32,7 +31,7 @@
 
         <div class="products"> 
             <div class="handle">
-                <?php
+                <?php if(isset($_GET['cID'])){
                 foreach($this->oProducts as $data)
                 {
                     ?>
@@ -43,7 +42,20 @@
                     <p><?=$data->fPrice?></p>
                     </a>
                 </div> <!--product-->
-                <?php } ?>
+                <?php } 
+                } else {
+                    foreach($this->oAllProducts as $data)
+                    {
+                        ?>
+                    <div class="product">
+                        <a href="index.php?controller=public&action=productMain&pID=<?=$data->id?>">
+                        <img src="imgs/<?=$data->strImgFile?>" alt="dress"/>
+                        <h2><?=$data->strProdName?></h2>
+                        <p><?=$data->fPrice?></p>
+                        </a>
+                    </div> <!--product-->
+                    <?php }
+                }?>
             </div> <!--handle-->
         </div> <!--products -->
     </div> <!--row secondary -->

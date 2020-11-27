@@ -3,9 +3,9 @@
         <form method="post" action="index.php">
             <input type="hidden" name="controller" value="cart">
             <input type="hidden" name="action" value="placeOrder">
-            <input type="hidden" name="uID" value="<?=$_SESSION['uID']?>">
+            <input type="hidden" name="intUserID" value="<?=$_SESSION['uID']?>">
             <input type="hidden" name="intOrderDate" value="<?=date("Y/m/d")?>">
-
+        
             <div class="handle">
                 <div class="billing-shipping">
                     <div class="billing">
@@ -52,32 +52,32 @@
                     <h3>Shipping details</h3>
                         <div class="fieldgroup">
                             <label>First Name*</label>
-                            <input type="text" name="strFirstName" value="">
+                            <input type="text" name="strFirstNameS" value="">
                         </div>
                         
                         <div class="fieldgroup">
                             <label>Last Name*</label>
-                            <input type="text" name="strLastName" value="">
+                            <input type="text" name="strLastNameS" value="">
                         </div>
 
                         <div class="fieldgroup">
                             <label>Address*</label>
-                            <input type="text" name="strAddress" value="">
+                            <input type="text" name="strAddressS" value="">
                         </div>
 
                         <div class="fieldgroup">
                             <label>City*</label>
-                            <input type="text" name="strCity" value="">
+                            <input type="text" name="strCityS" value="">
                         </div>
 
                         <div class="fieldgroup">
                             <label>Province*</label>
-                            <input type="text" name="strProvince" value="">
+                            <input type="text" name="strProvinceS" value="">
                         </div>
 
                         <div class="fieldgroup">
                             <label>ZIP*</label>
-                            <input type="text" name="strZIP" value="">
+                            <input type="text" name="strZIPS" value="">
                         </div>
 
                     </div>
@@ -90,8 +90,9 @@
 
                         foreach($CartItems as $data)
                         { ?> 
-                        <div class="item">
                         
+                        <div class="item">
+                                
                             <div class="col prodName">
                                 <span><?=$data["strProdName"]?></span>
 
@@ -113,6 +114,7 @@
                                 <div class="label">
                                     <span>Subtotal</span>
                                     <span class="secondary">$<?=Cart::showSubTotal();?></span>
+
                                 </div>
                                 <div class="line"></div>
                             </div><!--stubtotal-->
@@ -145,12 +147,12 @@
 
                         <div class="fieldgroup">
                             <label>Card number*</label>
-                            <input type="text" name="intCC" value="">
+                            <input type="text" name="intCCNumber" value="">
                         </div>
 
                         <div class="fieldgroup">
                             <label>Exp. Date*</label>
-                            <input type="text" name="intDate" value="">
+                            <input type="text" name="intExp" value="">
                         </div>
 
                         <div class="fieldgroup">

@@ -18,7 +18,12 @@ Class PublicController extends Controller{
  
         $this->loadData("Shop", "header");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
-        $this->loadData(Products::getProducts($_GET['cID']), "oProducts");
+        if(isset($_GET['cID'])){
+            $this->loadData(Products::getProducts($_GET['cID']), "oProducts");
+        }
+        
+        $this->loadData(Products::getAllProducts(), "oAllProducts");
+
         $this->loadData(Categories::getCat(), "oCat");
 
         $this->loadView("views/header.php");

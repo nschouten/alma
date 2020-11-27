@@ -6,6 +6,7 @@ Class Product {
 
         $this->id = $data["id"];
         $this->strProdName = $data["strProdName"];
+        $this->intCatID = $data["intCatID"];
         $this->strCatName = $data["strCatName"];
         $this->fPrice = $data["fPrice"];
         $this->strImgFile = $data["strImgFile"];
@@ -24,15 +25,42 @@ Class Product {
         return new Product($product[0]);
     }
 
-    public static function updateProduct($pID, $strProdName, $strCatName, $fPrice, $strProdDesc, $strColorName, $strSizeName, $intQty){
+    public static function saveProduct($intProductID, $strProdName, $intCatID, $fPrice, $strProdDesc, $intColorID, $intSizeID, $intQty, $intSku){
         
-        if($pID){
-            $update = DB::query("UPDATE products
-                                SET strProdName ='".$_POST["strProdName"]."', fPrice ='".$_POST["fPrice"]."', strProdDesc ='".$_POST["strProdDesc"]."'");
+        $mysqli = new mysqli("localhost", "root", "root", "alma" );
+
+        $strProdDesc = $mysqli -> real_escape_string($strProdDesc);
+
+        if($intProductID){
+
+            DB::query("UPDATE products
+                                SET strProdName ='".$strProdName."', intCatID ='".$intCatID."', fPrice ='".$fPrice."', strProdDesc ='".$strProdDesc."'
+                                WHERE id='".$intProductID."'");  
+            
+            // print_r($intSku);
+            foreach($intSku as $key => $arrSkuDetails)
+            {
+                DB::query("UPDATE sku
+                                SET intColorID ='".$arrSkuDetails['intColorID']."', intSizeID ='".$arrSkuDetails['intSizeID']."', intQty ='".$arrSkuDetails['intQty']."'
+                                WHERE id='".$key."'");
+                // echo($key);
+                // die;
+
+            }
+
+        } else {
+
+            DB::query("INSERT INTO products(strProdName, intCatID, fPrice, strProdDesc)
+                        VALUES ('".$strProdName."','".$intCatID."', '".$fPrice."', '".$strProdDesc."')");
+            
+            $intProductID = mysqli_insert_id(DB::connect());
+
+            $mysqli -> close();
+
+            // header("location: index.php?controller=cms&action=cmsProduct&pID=$intProductID");
         }
         
-
-
+            return true;
     }
     
 }

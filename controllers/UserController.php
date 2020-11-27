@@ -91,7 +91,7 @@ Class UserController extends Controller{
         
         $this->oUser = User::getCurrentUser();
         
-        echo $this->oUser->id;
+        // echo $this->oUser->id;
         
         }
     }

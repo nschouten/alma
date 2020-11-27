@@ -10,6 +10,7 @@ font-family: 'Montserrat', sans-serif; */
 
 body{
     background: #F8F5F0;
+    color: #333;
 }
 
 .header{
@@ -657,7 +658,8 @@ body{
     user-select: none;
     font-size: 12px;
     padding: 0px;
-    margin-right: 15px;
+    /* margin-right: 15px; */
+    width: 35%;
 }
 
 
@@ -700,7 +702,7 @@ body{
 .product-main form .fieldgroup.color .container{
     display: block;
     position: relative;
-    padding-left: 35px;
+    padding-left: 0px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -1050,7 +1052,7 @@ body{
     border: .5px solid #333;
     color: #333;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 10px;
     padding: 15px;
     padding-right: 25px;
     padding-left: 25px;
@@ -1065,7 +1067,7 @@ body{
     border: .5px solid #333;
     color: #333;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 10px;
     padding: 15px;
     padding-right: 25px;
     padding-left: 25px;
@@ -1233,6 +1235,109 @@ body{
     height: 15px;
 }
 
+.cms-product{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.cms-product .handle{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.cms-product .handle form h2{
+    font-size: 16px;
+    font-family: 'EB Garamond', serif;  
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    margin-bottom: 25px;
+}
+
+.cms-product .handle form .fieldgroup{
+    margin-bottom: 15px;
+}
+
+.cms-product .handle form .fieldgroup input[type=text]{
+    background: #EADED0;
+    border: none;
+    height: 30px;
+    width: 100%;
+    padding-left: 5px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.3px;
+}
+
+.cms-product .handle form label{
+    display: block;
+    color: #333;
+    letter-spacing: 1.2px;
+    font-weight: 200;
+}
+.cms-product .handle form .fieldgroup select{
+    font-family: 'Montserrat', sans-serif;
+    background: #f8f5f0;
+    border: .5px solid #333;
+    height: 20px;
+}
+
+
+.cms-product .handle form .fieldgroup textarea{
+    width: 100%;
+    border: none;
+    background: #EADED0;
+    height: 100px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.3px;
+    font-size: 10px;
+    padding: 5px;
+}
+
+.cms-product .handle form .fieldgroup.groups{
+    display: grid;
+    grid-template-columns: 1fr 1fr 60px;
+}
+
+.cms-product .handle form .subgroup{
+    margin-bottom: 10px;
+}
+
+.cms-product .handle form .subgroup label{
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+}
+
+.cms-product .handle form .subgroup input[type=text]{
+    width: 30px;
+    height: 20px;
+}
+
+.cms-product .handle form .subgroup select{
+    font-size: 10px;
+    
+}
+
+.cms-product .handle form input[type=submit]{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    border: .5px solid #333;
+    background: #f8f5f0;
+    font-size: 12px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    margin-top:5px;
+} 
+
+#notcart{
+    font-family: 'EB Garamond', serif;  
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    font-size: 14px;
+}
+
 
 @media only screen and (min-width: 600px) {
     .mobile-only{
@@ -1291,7 +1396,7 @@ body{
     .hero {
         background: url("../imgs/heropalm.png");
         width: 100vw;
-        height: 180px;
+        height: 200px;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -1312,6 +1417,10 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .hero.ss h2{
+        font-size: 28px;
     }
     
     
@@ -2009,6 +2118,7 @@ body{
         text-transform: uppercase;
         letter-spacing: 1.4px;
         background: #EADED0;
+        padding-bottom: 30px;
     }
     
     .cart-main .handle .cart-secondary .totals h3{
@@ -2058,7 +2168,7 @@ body{
         border: .5px solid #333;
         color: #333;
         text-decoration: none;
-        font-size: 12px;
+        font-size: 10px;
         padding: 15px;
         padding-right: 15px;
         padding-left: 15px;
@@ -2073,7 +2183,7 @@ body{
         border: .5px solid #333;
         color: #333;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 10px;
         padding: 15px;
         padding-right: 25px;
         padding-left: 25px;
@@ -2265,5 +2375,107 @@ body{
     .cms-products .product .deleteBtn img {
         height: 25px;
     }
+
+    .cms-product{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .cms-product .handle{
+        width: 70%;
+        margin: 0 auto;
+    }
+    
+    .cms-product .handle form h2{
+        font-size: 20px;
+        font-family: 'EB Garamond', serif;  
+        font-weight: 400;
+        letter-spacing: 1.2px;
+        margin-bottom: 25px;
+    }
+    
+    .cms-product .handle form .fieldgroup{
+        margin-bottom: 25px;
+    }
+    
+    .cms-product .handle form .fieldgroup input[type=text]{
+        background: #EADED0;
+        border: none;
+        height: 30px;
+        width: 100%;
+        padding-left: 10px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1.3px;
+        font-size: 12px;
+    }
+    
+    .cms-product .handle form label{
+        display: block;
+        color: #333;
+        letter-spacing: 1.2px;
+        font-weight: 200;
+        margin-bottom: 5px;
+    }
+    .cms-product .handle form .fieldgroup select{
+        font-family: 'Montserrat', sans-serif;
+        background: #f8f5f0;
+        border: .5px solid #333;
+        height: 30px;
+        font-size: 12px;
+        padding-left: 5px;
+        width: 120px;
+    }
+    
+    .cms-product .handle form .fieldgroup textarea{
+        width: 100%;
+        border: none;
+        background: #EADED0;
+        height: 140px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1.3px;
+        font-size: 12px;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+    
+    .cms-product .handle form .fieldgroup.groups{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 70%;
+    }
+    
+    .cms-product .handle form .subgroup{
+        margin-bottom: 20px;
+    }
+    
+    .cms-product .handle form .subgroup label{
+        display: inline-block;
+        font-size: 14px;
+        letter-spacing: 1.2px;
+    }
+    
+    .cms-product .handle form .subgroup input[type=text]{
+        width: 50px;
+        height: 30px;
+    }
+    
+    .cms-product .handle form .subgroup select{
+        font-size: 12px;
+        width: 80px;
+    }
+    
+    .cms-product .handle form input[type=submit]{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        border: .5px solid #333;
+        background: #f8f5f0;
+        font-size: 14px;
+        padding: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 30%;
+        margin-top:5px;
+    } 
 
 }

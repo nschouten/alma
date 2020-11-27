@@ -17,7 +17,6 @@ Class CartController extends Controller{
     public function addToCart(){
    
         Cart::addToCart($_POST['intProductID'], $_POST['fPrice'], $_POST['intQty'], $_POST['intColorID'], $_POST['intSizeID'], $_POST['strImgFile'], $_POST['strProdName']);
-  
     }
 
     public function empty(){
@@ -30,5 +29,10 @@ Class CartController extends Controller{
         Cart::removeFromCart($intSku);
     }
 
+    public function placeOrder(){
+   
+        Cart::cartCheckout($_POST['intUserID'], $_POST['intOrderDate'], $_POST['strFirstName'], $_POST['strLastName'], $_POST['strAddress'], $_POST['strCity'], $_POST['strProvince'], $_POST['strZIP'], $_POST['strPhone'], $_POST['strFirstNameS'], $_POST['strLastNameS'], $_POST['strAddressS'], $_POST['strCityS'], $_POST['strProvinceS'], $_POST['strZIPS'], $_POST['fTotal'] ,$_POST['strCCName'], $_POST['intCCNumber'], $_POST['intExp'], $_POST['intCVV']);
+  
+    }
 
 }

@@ -15,22 +15,22 @@ Class Inventory{
         
     }
 
-    // public static function getInven(){ 
+    // public static function getAllInven(){ 
         
-    //     $inventory = DB::query("SELECT sku.*, products.strProdName, sizes.strSizeName, colors.strColorName
+    //     $allinventory = DB::query("SELECT sku.*, products.strProdName, sizes.strSizeName, colors.strColorName
     //                         FROM sku
     //                         LEFT JOIN products on sku.intProductID=products.id
     //                         LEFT JOIN sizes on sku.intSizeID = sizes.id
     //                         LEFT JOIN colors on sku.intColorID = colors.id");
         
-    //     $arrInventory = array();
+    //     $arrAllInventory = array();
 
-    //     foreach($inventory as $data)
+    //     foreach($allinventory as $data)
     //     {
-    //         $arrInventory[] = new Inventory($data);
+    //         $arrAllInventory[] = new Inventory($data);
     //     }
 
-    //     return $arrInventory;
+    //     return $arrAllInventory;
     // }
 
     public static function getInvenByID($pID){ 
