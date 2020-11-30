@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {   
     var Validator = function(){
         var validator = this;
-        validator.element = document.getElementById("addProdFormU");
+        validator.element = document.getElementById("addingProduct");
+        
+       
+        
 
         validator.element.addEventListener("submit", function(event){
 
             var error = false;
-            var fg = document.getElementsByClassName("need");
+            var fg = document.getElementsByClassName("required");
 
             for(var i=0; i<fg.length; i++)
             {
@@ -15,8 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     event.preventDefault();
                 }
 
-                var field = fg[i].querySelector("input");
-                console.log(field);
+                var field = fg[i].getElementsByClassName("input");
 
                 var fieldValue = field.value; 
 

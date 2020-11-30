@@ -22,7 +22,14 @@ Class Product {
                                 LEFT JOIN productImgs on products.id = productImgs.intProductID
                                 WHERE products.id =" .$_GET['pID']);
 
-        return new Product($product[0]);
+        $arrProducts = array();
+
+        foreach($product as $data)
+        {
+            $arrProducts[] = new Product($data);
+        }
+
+        return $arrProducts;
     }
 
     public static function saveProduct($intProductID, $strProdName, $intCatID, $fPrice, $strProdDesc, $intColorID, $intSizeID, $intQty, $intSku){
@@ -61,6 +68,58 @@ Class Product {
         }
         
             return true;
+    }
+
+    public static function addNewProd($strProdName, $fPrice, $intCatID, $strProdDesc, $intColorID, $intSizeID, $intQty){
+
+        // $mysqli = new mysqli("localhost", "nicolesc_alma", "Term3PHP", "nicolesc_alma");
+
+        // $strProdDesc = $mysqli -> real_escape_string($strProdDesc);
+
+        //ADD TO PRODUCTS TABLE 
+        $CON = DB::query("INSERT INTO products(strProdName, intCatID, fPrice, strProdDesc)
+            VALUES ('".$strProdName."','".$intCatID."', '".$fPrice."', '".$strProdDesc."')");
+
+            $intProductID = mysqli_insert_id($CON);
+
+        //ADD TO SKU TABLE 
+        $CON = DB::query("INSERT INTO sku(intProductID, intColorID, intSizeID, intQty)
+        VALUES ('".$intProductID."','".$intColorID."', '".$intSizeID."', '".$intQty."')");
+
+
+        echo("INSERT INTO sku(intProductID, intColorID, intSizeID, intQty)
+        VALUES ('".$intProductID."','".$intColorID."', '".$intSizeID."', '".$intQty."')"); 
+        die;
+            $intSku = mysqli_insert_id($CON);
+
+        //ADD TO PRODUCTIMGS TABLE
+        $timestamp =round(microtime(true) * 1000);
+        $target_dir = "imgs/"; 
+        $target_file = $target_dir.basename($timestamp.$_FILES["strFileName"]["name"]);
+        $ext = strtolower(pathinfo($_FILES['strFileName']['name'], PATHINFO_EXTENSION));
+        $fileTypeAllowed = array('pdf', 'png', 'jpeg', 'jpg');
+
+        if(!in_array($ext, $fileTypeAllowed))
+        {
+            echo ("file type not allowed");
+            $target_file = null;
+
+        } else {
+
+            move_uploaded_file($_FILES["strFileName"]["tmp_name"], $target_file);
+
+        }
+
+        if($target_file) 
+        {
+            $CON = DB::query("INSERT INTO productImgs(intProductID, strImgFile, intMain)
+                VALUES ('".$intProductID."','".$target_file."', '1')");
+        
+                $intProductImgID = mysqli_insert_id($CON); 
+        }
+
+        return true;
+
     }
     
 }

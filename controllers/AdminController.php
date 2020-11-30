@@ -29,7 +29,7 @@ Class AdminController extends Controller{
         
         $this->oAdmin = Admin::getCurrentAdmin();
         
-        echo $this->oAdmin->id;
+        // echo $this->oAdmin->id;
         
         }
     }

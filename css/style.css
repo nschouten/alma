@@ -107,8 +107,10 @@ body{
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 200;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 1.4px;
+    display: block;
+    margin-bottom: 25px;
 }
 
 .header .burger .flyout h3{
@@ -830,7 +832,7 @@ body{
     width: 100%;
     border: none;
     background: #EADED0;
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 .product-main .reviews input[type=submit]{
@@ -1143,6 +1145,7 @@ body{
     height: 30px;
     background: #EADED0;
     border: none;
+    padding-left: 10px;
 }
 
 .checkout-main form .item{
@@ -1262,7 +1265,7 @@ body{
     border: none;
     height: 30px;
     width: 100%;
-    padding-left: 5px;
+    padding-left: 10px;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1.3px;
 }
@@ -1310,6 +1313,7 @@ body{
 .cms-product .handle form .subgroup input[type=text]{
     width: 30px;
     height: 20px;
+    padding-left: 10px;
 }
 
 .cms-product .handle form .subgroup select{
@@ -1338,6 +1342,224 @@ body{
     font-size: 14px;
 }
 
+.cms-customers{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 100vw;
+}
+
+.cms-customers .handle{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.cms-customers .handle h3{
+    margin-bottom: 25px;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+}
+
+.cms-customers .people{
+    overflow: hidden;
+}
+
+.cms-customers .people .person{
+    float: left;
+    width: 50%;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.cms-customers .people .person a{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.cms-orders{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.cms-orders .handle{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.cms-orders .handle h3{
+    font-family: 'EB Garamond', serif;  
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    margin-bottom: 25px;
+}
+
+.cms-orders .orders .order{
+    overflow: hidden;
+    margin-bottom: 20px;
+    font-family: 'EB Garamond', serif;  
+    font-weight: 200;
+    border: .5px solid #333;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.cms-orders .orders .order .group{
+    margin-bottom: 3px;
+    float: left;
+    width: 50%;
+}
+
+.cms-orders .orders .order a{
+    color: #333;
+    text-decoration: none;
+}
+
+.cms-orders .orders .order label{
+    font-weight: 500;
+}
+
+.cms-order{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: 'EB Garamond', serif;  
+    color: #333;
+}
+
+.cms-order .handle{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.cms-order .handle h3{
+    margin-bottom: 25px;
+    text-align: center;
+    letter-spacing: 1.2px;
+}
+
+.cms-order .handle h4{
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+.cms-order .handle span{
+    display: block;
+}
+
+.cms-order .handle label{
+    font-weight: 600;
+}
+
+.cms-order .line{
+    width: 100px;
+    height: 0;
+    border: .5px solid #333;
+    /* margin: 3px; */
+    display: inline-block;
+}
+
+.cms-addProduct{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.cms-addProduct .handle{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.cms-addProduct .handle label{
+    display: block;
+}
+
+.cms-addProduct .handle .fieldgroup{
+    margin-bottom: 10px;
+}
+
+.cms-addProduct .handle .fieldgroup select{
+    height: 20px;
+}
+
+.cms-addProduct .handle input[type=text]{
+    width: 100%;
+    height: 30px;
+    background: #EADED0;
+    border: none;
+}
+
+.cms-addProduct .handle textarea{
+    width: 100%;
+    height: 60px;
+    border: none;
+    background: #EADED0;
+}
+
+.cms-addProduct .handle .fieldgroup.groups{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.cms-addProduct .handle .fieldgroup.groups label{
+    display: inline-block;
+}
+
+.cms-addProduct .handle .fieldgroup.groups select{
+    width: 40px;
+    margin-right: 13px;
+    height: 20px;
+}
+
+.cms-addProduct .handle .fieldgroup.groups input[type=text]{
+    width: 50px; 
+    padding-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cms-addProduct .handle .fieldgroup.groups .subgroup{
+    float: left;
+    
+}
+
+#addNewProd{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    border: .5px solid #333;
+    background: #f8f5f0;
+    font-size: 12px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.cms-home{
+    margin-top: 25px;
+    width: 100vw;
+}
+
+.cms-home .handle{
+    width: 100%;
+    margin: 0 auto;
+}
+.cms-home h3{
+    margin-bottom: 25px;
+    font-family: 'EB Garamond', serif;  
+    color: #333;
+    letter-spacing: 1.2px;
+    text-align: center;
+}
+
+.cms-home .handle img{
+    width: 100vw;
+}
+
+
+
 
 @media only screen and (min-width: 600px) {
     .mobile-only{
@@ -1351,7 +1573,7 @@ body{
     .header{
         height: 120px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 2fr;
         margin-bottom: 10px;
     }
     
@@ -2457,6 +2679,7 @@ body{
     .cms-product .handle form .subgroup input[type=text]{
         width: 50px;
         height: 30px;
+        padding-left: 10px;
     }
     
     .cms-product .handle form .subgroup select{
@@ -2477,5 +2700,83 @@ body{
         width: 30%;
         margin-top:5px;
     } 
+
+    .cms-customers{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: 100vw;
+    }
+    
+    .cms-customers .handle{
+        width: 70%;
+        margin: 0 auto;
+    }
+    
+    .cms-customers .handle h3{
+        margin-bottom: 25px;
+        font-size: 24px;
+    }
+    
+    .cms-customers .people{
+        overflow: hidden;
+    }
+    
+    .cms-customers .people .person{
+        float: left;
+        width: 50%;
+        padding-right: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .cms-customers .people .person a{
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        font-size: 12px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .cms-order{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        font-family: 'EB Garamond', serif;  
+        color: #333;
+    }
+    
+    .cms-order .handle{
+        width: 50%;
+        margin: 0 auto;
+        border: .5px solid #333;
+        padding: 20px;
+        border-radius: 2px;
+    }
+    
+    .cms-order .handle h3{
+        margin-bottom: 25px;
+        text-align: center;
+        letter-spacing: 1.2px;
+    }
+    
+    .cms-order .handle h4{
+        margin-bottom: 10px;
+        margin-top: 25px;
+    }
+    
+    .cms-order .handle span{
+        display: block;
+    }
+    
+    .cms-order .handle label{
+        font-weight: 600;
+    }
+
+    .cms-order .line{
+        width: 120px;
+        height: 0;
+        border: .5px solid #333;
+        /* margin: 3px; */
+        display: inline-block;
+    }
 
 }

@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="checkout">
-                    <?php if($_SESSION['uID']=="")
+                    <?php if(!isset($_SESSION['uID']))
                     { ?>
                         <a href="index.php?controller=register&action=register">Proceed to Checkout</a>
                     <?php

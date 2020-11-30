@@ -123,4 +123,5 @@
         </div><!--reviews-->
     </div>
 
+    <script src="js/validator-review.js"></script> 
 

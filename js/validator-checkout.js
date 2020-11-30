@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {   
     var Validator = function(){
         var validator = this;
-        validator.element = document.getElementById("addProdForm");
+        validator.element = document.getElementById("checkoutForm");
 
         validator.element.addEventListener("submit", function(event){
 
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     event.preventDefault();
                 }
 
-                var field = fg[i].querySelector("input, textarea, radio");
+                var field = fg[i].querySelector("input");
                 console.log(field);
 
                 var fieldValue = field.value; 

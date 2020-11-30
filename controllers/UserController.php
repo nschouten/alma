@@ -38,16 +38,6 @@ Class UserController extends Controller{
             $fileAllowed = 1; 
         
         }
-       
-        // if($target_file)
-        // {
-
-        //     $sql = "INSERT INTO reviews(strFileName)
-        //             VALUES ('".$target_file."')";
-        //     echo($sql);
-        //     die;
-        //     $results = mysqli_query($con, $sql);
-        // }
 
         if($_POST['intUserID'] && $_POST['intProductID'] && $_POST['intRating'] && $_POST['strComment'] && $target_file)
         {
@@ -70,6 +60,21 @@ Class UserController extends Controller{
         
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
         $this->loadData("Checkout", "header");
+        $this->loadData(Cart::show(), "CartContents");
+
+        $this->loadView("views/header.php");
+        $this->loadView("views/hero.php");
+        $this->loadView("views/checkout.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
+
+    }
+
+    
+    public function checkoutError(){
+        
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Oops, Please Try Again!", "header");
         $this->loadData(Cart::show(), "CartContents");
 
         $this->loadView("views/header.php");

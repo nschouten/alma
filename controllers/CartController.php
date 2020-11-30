@@ -31,7 +31,16 @@ Class CartController extends Controller{
 
     public function placeOrder(){
    
-        Cart::cartCheckout($_POST['intUserID'], $_POST['intOrderDate'], $_POST['strFirstName'], $_POST['strLastName'], $_POST['strAddress'], $_POST['strCity'], $_POST['strProvince'], $_POST['strZIP'], $_POST['strPhone'], $_POST['strFirstNameS'], $_POST['strLastNameS'], $_POST['strAddressS'], $_POST['strCityS'], $_POST['strProvinceS'], $_POST['strZIPS'], $_POST['fTotal'] ,$_POST['strCCName'], $_POST['intCCNumber'], $_POST['intExp'], $_POST['intCVV']);
+        if(Cart::cartCheckout($_POST['intUserID'], $_POST['intOrderDate'], $_POST['strFirstName'], $_POST['strLastName'], $_POST['strAddress'], $_POST['strCity'], $_POST['strProvince'], $_POST['strZIP'], $_POST['strPhone'], $_POST['strFirstNameS'], $_POST['strLastNameS'], $_POST['strAddressS'], $_POST['strCityS'], $_POST['strProvinceS'], $_POST['strZIPS'], $_POST['fTotal'] ,$_POST['strCCName'], $_POST['intCCNumber'], $_POST['strExp'], $_POST['intCVV']))
+        {
+            $_SESSION["arrCart"] = array();
+            header("location: index.php?controller=public&action=purchaseSuccess");
+
+        } else {
+
+            header("location: index.php?controller=user&action=checkoutError");
+
+        }
   
     }
 

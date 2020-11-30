@@ -18,8 +18,12 @@ Class Cart {
     }
 
     static public function show(){
-       
-        return $_SESSION["arrCart"];       
+
+       if(isset($_SESSION["arrCart"]))
+       {
+            return $_SESSION["arrCart"];
+       }
+
     
     }
 
@@ -41,11 +45,13 @@ Class Cart {
 
         $intCartCount = 0;
         
-        foreach($_SESSION["arrCart"] as $item)
-        {
-        
-            $intCartCount = $intCartCount + $item["intQty"];
+        if(isset($_SESSION["arrCart"])){
+            foreach($_SESSION["arrCart"] as $item)
+            {
             
+                $intCartCount = $intCartCount + $item["intQty"];
+                
+            }
         }
 
         return $intCartCount;
@@ -55,12 +61,14 @@ Class Cart {
 
         $intSubTotal = 0;
         
-        
-        foreach($_SESSION["arrCart"] as $item)
+        if(isset($_SESSION["arrCart"]))
         {
-        
-            $intSubTotal = $intSubTotal + $item["intQty"]*$item["fPrice"];
+            foreach($_SESSION["arrCart"] as $item)
+            {
             
+                $intSubTotal = $intSubTotal + $item["intQty"]*$item["fPrice"];
+                
+            }
         }
 
         return $intSubTotal;
@@ -70,18 +78,19 @@ Class Cart {
 
         $intTotal = 0;
         
-        
-        foreach($_SESSION["arrCart"] as $item)
-        {
-        
-            $intTotal = $intTotal + $item["intQty"]*$item["fPrice"];
+        if(isset($_SESSION["arrCart"])){
+            foreach($_SESSION["arrCart"] as $item)
+            {
             
+                $intTotal = $intTotal + $item["intQty"]*$item["fPrice"];
+                
+            }
         }
 
         return $intTotal + 10;
     }
 
-    public static function cartCheckout($intUserID, $intOrderDate, $strFirstName, $strLastName, $strAddress, $strCity, $strProvince, $strZIP, $strPhone, $strFirstNameS, $strLastNameS, $strAddressS, $strCityS, $strProvinceS, $strZIPS, $fTotal, $strCCName, $intCCNumber, $intExp, $intCVV){
+    public static function cartCheckout($intUserID, $intOrderDate, $strFirstName, $strLastName, $strAddress, $strCity, $strProvince, $strZIP, $strPhone, $strFirstNameS, $strLastNameS, $strAddressS, $strCityS, $strProvinceS, $strZIPS, $fTotal, $strCCName, $intCCNumber, $strExp, $intCVV){
 
         
             //INSERT INTO BILLING TABLE 
@@ -99,8 +108,8 @@ Class Cart {
 
 
             //INSERT INTO PAYMENT TABLE
-            DB::query("INSERT INTO payment(intUserID, strCCName, intCCNumber, intExp, intCVV)
-            VALUES ('".$intUserID."','".$strCCName."', '".$intCCNumber."', '".$intExp."','".$intCVV."')");
+            DB::query("INSERT INTO payment(intUserID, strCCName, intCCNumber, strExp, intCVV)
+            VALUES ('".$intUserID."','".$strCCName."', '".$intCCNumber."', '".$strExp."','".$intCVV."')");
             
             $intPaymentID = mysqli_insert_id($CON);
 
@@ -111,10 +120,10 @@ Class Cart {
             $intOrderID = mysqli_insert_id($CON);
 
             //INSERT INTO ORDER-PRODUCTS TABLE
-            foreach(Cart::show() as $key => $cartDetails)
+            foreach(Cart::show() as $key => $cartDetails) 
             {
-                DB::query("INSERT INTO ordersProducts(intOrderID, strProductName, intSKU, intQty, fPrice)
-                VALUES ('".$intOrderID."','".$cartDetails['strProductName']."', '".$key."', '".$cartDetails['intQty']."','".$cartDetails['fPrice']."')");
+                DB::query("INSERT INTO orderProducts(intOrderID, intProductID, intSKU, intQty, fPrice)
+                VALUES ('".$intOrderID."','".$cartDetails['intProductID']."', '".$key."', '".$cartDetails['intQty']."','".$cartDetails['fPrice']."')");
             
             $intOrderProductID = mysqli_insert_id($CON);
             

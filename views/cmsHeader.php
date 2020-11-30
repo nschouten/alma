@@ -9,10 +9,10 @@
             <a class="web-only" href="index.php?controller=cms&action=cmsProducts" id="prodBtn">Products</a>
             <a class="web-only" href="index.php?controller=cms&action=customers" id="custBtn">Customers</a>
             <a class="web-only" href="index.php?controller=cms&action=orders" id="ordBtn">Orders</a>
-            <a class="web-only" href="index.php" id="cartBtn">Back to Shop</a>
+            <a class="web-only" href="index.php" id="cartBtn">Shop</a>
         </div>
         <div class="mobile-nav mobile-only">
-            <a href="index.php?controller=cart&action=cartMain" id="crt">Cart(<?=Cart::showCartCount();?>)</a>
+            
             <div class="burger mobile-only">
                 <input type="checkbox" class="cb">
                 <div class="bars">
@@ -26,7 +26,7 @@
                     <a class="mobile-only" href="index.php?controller=cms&action=cmsProducts" id="prodBtn">Products</a>
                     <a class="mobile-only" href="index.php?controller=cms&action=customers" id="custBtn">Customers</a>
                     <a class="mobile-only" href="index.php?controller=cms&action=orders" id="ordBtn">Orders</a>
-                    <a class="mobile-only" href="index.php" id="cartBtn">Back to Shop</a>
+                    <a class="mobile-only" href="index.php" id="cartBtn">Shop</a>
                 </div><!--.flyout-->
             </div> <!--.buger-->
         </div> <!--mobilenav-->

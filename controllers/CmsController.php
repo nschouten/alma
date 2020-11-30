@@ -5,8 +5,8 @@ Class CmsController extends Controller{
     public function customers(){
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Customers", "header");
         $this->loadData(Customers::getCustomers(), "oCustomers");
-        // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
 
         $this->loadView("views/cmsHeader.php");
         $this->loadView("views/hero.php");
@@ -18,11 +18,11 @@ Class CmsController extends Controller{
     public function customer(){
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
-        // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
+        $this->loadData("Customer", "header");
 
         $this->loadView("views/cmsHeader.php");
         $this->loadView("views/hero.php");
-        $this->loadView("views/cmsCutomer.php");
+        $this->loadView("views/cmsCustomer.php");
         $this->loadView("views/footer.php");
         $this->loadFinalView("views/main.php");
     }
@@ -30,7 +30,8 @@ Class CmsController extends Controller{
     public function orders(){
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
-        // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
+        $this->loadData("Orders", "header");
+        $this->loadData(Orders::getOrders(), "oOrders");
 
         $this->loadView("views/cmsHeader.php");
         $this->loadView("views/hero.php");
@@ -42,7 +43,11 @@ Class CmsController extends Controller{
     public function order(){
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
-        // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
+        $this->loadData("Order", "header");
+        $this->loadData(Order::getOrder($_GET['oID']), "oOrder");
+        $this->loadData(Billing::getBillingByID($_GET['oID']), "oBilling");
+        $this->loadData(Payment::getPaymentByID($_GET['oID']), "oPayment");
+        // $this->loadData(Shipping::getShipping($_GET['oID']), "oShipping");
 
         $this->loadView("views/cmsHeader.php");
         $this->loadView("views/hero.php");
@@ -69,8 +74,10 @@ Class CmsController extends Controller{
         $this->loadData("Edit", "header");
         $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
         $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
-        $this->loadData(Product::getProduct($_GET['pID']), "oProduct");
-        $this->loadData(Inventory::getInvenByID($_GET['pID']), "oInven");
+        if(isset($_GET['pID'])){
+            $this->loadData(Product::getProduct($_GET['pID']), "oProduct");
+            $this->loadData(Inventory::getInvenByID($_GET['pID']), "oInven");
+        }
         
         $this->loadData(Categories::getCat(), "oCat");
         $this->loadData(Colors::getColors(), "oColors");
@@ -115,20 +122,50 @@ Class CmsController extends Controller{
         $this->loadFinalView("views/main.php");
     }
 
-    public function addNewProduct(){
-        // if($_POST["name"] && $_POST["description"] && $_POST["due_date"] && $_POST["weight"])
-		// {
-		// 	$con = DB::connect();
-		// 	$sql = "INSERT INTO assignments(name, description, due_date, weight) values ('".$_POST["name"]."', '".$_POST["description"]."','".$_POST["due_date"]."','".$_POST["weight"]."')";
-		
-		// 	mysqli_query($con, $sql);
+    public function addProdSuccess(){
+        $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Product Added!", "header");
+        $this->loadData(Categories::getCat(), "oCat");
+        $this->loadData(Colors::getColors(), "oColors");
+        $this->loadData(Sizes::getSizes(), "oSizes");
+        // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
 
-		// 	// if successed new assignment
-		// 	$this->go("assignments", "main"); 
-		// } else {
-		// 	// if unsucseful
-		// 	$this->go("assignments", "addAssignment"); 
-		// }
+        $this->loadView("views/cmsHeader.php");
+        $this->loadView("views/hero.php");
+        $this->loadView("views/cmsAddProduct.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
+    }
+
+    public function addProdError(){
+        $this->loadData("<img src='imgs/hero1.jpg' alt='hero'/>", "hero");
+        $this->loadData("<img src='imgs/logo.png' alt='logo'/>", "logo");
+        $this->loadData("Oops, try again", "header");
+        $this->loadData(Categories::getCat(), "oCat");
+        $this->loadData(Colors::getColors(), "oColors");
+        $this->loadData(Sizes::getSizes(), "oSizes");
+        // $this->loadData(Admin::getCurrentAdmin(), "oAdmin");
+
+        $this->loadView("views/cmsHeader.php");
+        $this->loadView("views/hero.php");
+        $this->loadView("views/cmsAddProduct.php");
+        $this->loadView("views/footer.php");
+        $this->loadFinalView("views/main.php");
+    }
+
+    public function addNewProduct(){
+        
+        if(Product::addNewProd($_POST['strProdName'], $_POST['fPrice'], $_POST['intCatID'], $_POST['strProdDesc'], $_POST['intColorID'], $_POST['intSizeID'], $_POST['intQty']))
+       {
+           header("location: index.php?controller=cms&action=addProdSuccess");
+
+       } else {
+
+            header("location: index.php?controller=cms&action=addProdError");
+
+       }
+        
 
     }
 
@@ -142,7 +179,7 @@ Class CmsController extends Controller{
         
         $this->oAdmin = Admin::getCurrentAdmin();
         
-        echo $this->oAdmin->id;
+        // echo $this->oAdmin->id;
         
         }
     }

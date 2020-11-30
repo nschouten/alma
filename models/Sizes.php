@@ -9,6 +9,24 @@ Class Sizes{
 
     }
 
+    public static function getSizesByProd(){
+
+        $sizes = DB::query("SELECT DISTINCT sizes.strSizeName, sizes.id
+                            FROM sizes
+                            LEFT JOIN sku on sizes.id=sku.intSizeID
+                            WHERE sku.intProductID=".$_GET['pID']);
+
+        $arrSizes = array();
+
+        foreach($sizes as $data)
+        {
+            $arrSizes[] = new Sizes($data);
+        }
+
+        return $arrSizes;
+
+    }
+
     public static function getSizes(){
 
         $sizes = DB::query("SELECT * FROM sizes");

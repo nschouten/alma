@@ -2,22 +2,27 @@
     <div class="handle">
         <form method="post" action="index.php" id="addProdForm" enctype="multipart/form-data">
             <input type="hidden" name="controller" value="cms">
-            <input type="hidden" name="action" value="updateProd">
-            <input type="hidden" name="intProductID" value="">
+            <input type="hidden" name="action" value="addNewProduct">
 
             <div class="fieldgroup required">
                 <label>Product Name</label>
-                <input type="text" name="strProdName" value="<?=$this->oProduct->strProdName?>"/>
+                <input type="text" name="strProdName" value=""/>
+                <div class="attention">
+                    <p>You forgot a field!</p>
+                </div>
             </div>
 
             <div class="fieldgroup required">
                 <label>Price</label>
-                <input type="text" name="fPrice" value="<?=$this->oProduct->fPrice?>"/>
+                <input type="text" name="fPrice" value=""/>
+                <div class="attention">
+                    <p>You forgot a field!</p>
+                </div>
             </div>
 
             <div class="fieldgroup">
                 <label>Pictures</label>
-                <input type="file" id="files" name="files" multiple>
+                <input type="file" name="strFileName">
             </div>
 
             <div class="fieldgroup required">
@@ -25,52 +30,66 @@
                 <select name="intCatID">
                     <option></option>
                 <?php foreach($this->oCat as $data)
-                {
-                    $currentlySelected = ($this->oProduct->intCatID == $data->id) ? "SELECTED" : ""; ?>
-                    <option value="<?=$data->id?>" <?=$currentlySelected?>><?=$data->strCatName?></option>
+                {?>
+                    <option value="<?=$data->id?>"><?=$data->strCatName?></option>
                 <?php } ?>
                 </select>
+                <div class="attention">
+                    <p>You forgot a field!</p>
+                </div>
             </div>
             
             <div class="fieldgroup required">
                 <label>Description</label>
-                <textarea name="strProdDesc"><?=$this->oProduct->strProdDesc?></textarea>
+                <textarea name="strProdDesc"></textarea>
+                <div class="attention">
+                    <p>You forgot a field!</p>
+                </div>
             </div>
 
             <div class="fieldgroup required groups">
-                <input type="hidden" name="intSku[]" value="">
 
                 <div class="subgroup">
                     <label>Color</label>
-                    <select name="intSku[][intColorID]">
+                    <select name="intColorID">
                         <option></option>
                         <?php foreach($this->oColors as $colorData) { ?>
                             
-                        <option value="<?=$colorData->id?>" <?=$currentlySelected?>><?=$colorData->strColorName?></option>
+                        <option value="<?=$colorData->id?>" ><?=$colorData->strColorName?></option>
                         <?php } ?>
                     </select>
+                    <div class="attention">
+                        <p>You forgot a field!</p>
+                    </div>
                 </div><!--subgroup--> 
 
                 <div class="subgroup">
                     <label>Size</label>
-                    <select name="intSku[][intSizeID]">
+                    <select name="intSizeID">
                         <option></option>
                         <?php foreach($this->oSizes as $sizeData) { ?>
                         
-                        <option value=""><?=$sizeData->strSizeName?></option>
+                        <option value="<?=$sizeData->id?>"><?=$sizeData->strSizeName?></option>
                         <?php } ?>
                     </select>
+                    <div class="attention">
+                        <p>You forgot a field!</p>
+                    </div>
                 </div><!--subgroup-->   
 
                 <div class="subgroup">
                     <label>Qty</label>
-                    <input type="text" name="intSku[][intQty]" value="<?=$data->intQty?>">
+                    <input type="text" name="intQty" value="">
+                    <div class="attention">
+                        <p>You forgot a field!</p>
+                    </div>
                 </div>
             </div> <!--fieldgroup-->
 
             <div class="fieldgroup" id="optionSetContainer"></div>
-            <input type="submit" value="Add"/>
+            <input type="submit" value="Add" id="addNewProd"/>
         </form>
      </div>
 </div>
+<script src="js/validator-newproduct.js"></script> 
             

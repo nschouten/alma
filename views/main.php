@@ -16,10 +16,9 @@
     
 </div>
 
-<script src="js/addProduct.js"></script> 
-<script src="js/review-validator.js"></script> 
 <script src="js/select.js"></script> 
 <script src="js/deleteMsg.js"></script> 
+
 
 
 </body>

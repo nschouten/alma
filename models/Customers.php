@@ -5,8 +5,6 @@ Class Customers{
     public function __construct($userData){
 
         $this->id = $userData["id"];
-        $this->strFirstName = $userData["strFirstName"];
-        $this->strLastName = $userData["strLastName"];
         $this->strEmail = $userData["strEmail"];
         $this->strFullName = $userData["strFullName"];
     }

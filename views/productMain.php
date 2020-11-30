@@ -23,7 +23,7 @@
                 <span><?=$this->oProduct->fPrice?></span>
                 <p><?=$this->oProduct->strProdDesc?><p>
 
-                <form method="post" action="index.php" id="addProdForm"> 
+                <form method="post" action="index.php" id="addingProduct"> 
                     <input type="hidden" name="controller" value="cart">
                     <input type="hidden" name="action" value="addToCart">
                     <input type="hidden" name="intProductID" value="<?=$this->oProduct->id?>">
@@ -35,28 +35,28 @@
                         <?php foreach($this->oColors as $data)
                         { ?>
                             <label class="container"><?=$data->strColorName?>
-                                <input type="radio" id="colorChoice" name="intColorID" value="<?=$data->id?>">
+                                <input type="radio" id="colorChoice" class="radiocheck" name="intColorID" value="<?=$data->id?>">
                                 <span class="checkmark"></span>
                             </label>
                         <?php } ?>
                         <div class="attention">
                             <p>You forgot a field!</p>
                         </div>
-                    </div>
+                    </div><!--fieldgroup color-->
 
                     <div class="fieldgroup size required" id="sizeContainer">
                         <?php foreach($this->oSizes as $data)
                         { ?>
                             <label class="container">
                                 <?=$data->strSizeName?>
-                                <input type="radio" name="intSizeID" value="<?=$data->id?>">
+                                <input type="radio"  class="radiocheck" name="intSizeID" value="<?=$data->id?>">
                                 <span class="checkmark"></span>
                             </label>
                         <?php } ?>
                         <div class="attention">
                             <p>You forgot a field!</p>
                         </div>
-                    </div>
+                    </div><!--fieldgroup size-->
 
                     <div class="fieldgroup qty">
                         <span>Qty</span>
@@ -76,4 +76,5 @@
 
 </div>
 
+<script src="js/validator-product.js"></script> 
 

@@ -7,7 +7,7 @@ Class DB{
     
     static public function connect(){
 
-        return mysqli_connect("localhost", "root", "root", "alma");
+        return mysqli_connect("localhost", "nicolesc_alma", "Term3PHP", "nicolesc_alma");
   
         // $safeConnect = parse_ini_file("../alma-db.ini"); 
 
